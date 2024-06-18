@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://metatags.io/" />
+        <meta property="og:url" content="/Images/Meta.png" />
         <meta
           property="og:title"
           content="วิศวะคอม  ม.รังสิต - CPE Rangsit University"
