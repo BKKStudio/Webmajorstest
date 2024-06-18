@@ -12,7 +12,7 @@ export default function CoursesOffered() {
           <div className="flex flex-col text-center gap-1"></div>
         </div>
       </article>
-      <article className="bg-[#991F23] w-full h-full flex justify-center items-end">
+      <article className="bg-[#991F23] w-full h-max flex justify-center items-end">
         <div className="max-w-6xl w-full flex justify-center pt-3 lg:pt-8 pb-26 lg:pb-80  ">
           <div className="grid grid-cols-3 max-sm:grid-cols-2  text-center text-[#FFFFFF] lg:gap-20 pb-6 max-lg:pb-28">
             <div className="w-full">
@@ -79,7 +79,7 @@ export default function CoursesOffered() {
           <img
             alt=""
             src={"/Images/Wave/Wave3.png"}
-            className="w-full h-max absolute"
+            className=""
           />
         </div>
       </article>
