@@ -75,7 +75,7 @@ export default function CoursesOffered() {
             </div>
           </div>
         </div>
-        <div className="w-full h-full absolute  flex items-end ">
+        <div className="w-full h-max absolute  flex items-end ">
           <img
             alt=""
             src={"/Images/Wave/Wave3.png"}
