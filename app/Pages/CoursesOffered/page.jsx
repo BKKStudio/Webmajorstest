@@ -79,7 +79,7 @@ export default function CoursesOffered() {
           <img
             alt=""
             src={"/Images/Wave/Wave3.png"}
-            className=" h-max absolute"
+            className="w-full h-max absolute"
           />
         </div>
       </article>
