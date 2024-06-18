@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="og:image"
-          content="https://metatags.io/images/meta-tags.png"
+          content="/Images/Meta.png"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
