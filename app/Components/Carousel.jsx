@@ -1,6 +1,6 @@
 import React from "react";
 
-function Carousel() {
+export default function Carousel() {
   return (
     <div
       id="carouselExampleInterval"
@@ -59,4 +59,4 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+

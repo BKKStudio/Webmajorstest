@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { BsMortarboard, BsReceipt } from "react-icons/bs";
-import Carousel from "@/app/Components/Carousel";
+import Carousel from "../../Components/Carousel";
 
 export default function CoursesOffered() {
   return (
@@ -13,7 +13,7 @@ export default function CoursesOffered() {
         </div>
       </article>
       <article className="bg-[#991F23] w-full h-max flex justify-center items-end">
-        <div className="max-w-6xl w-full flex justify-center pt-3 lg:pt-8 pb-26 lg:pb-80  ">
+        <div className="max-w-6xl w-full flex justify-center pt-3 lg:pt-8 pb-26   ">
           <div className="grid grid-cols-3 max-sm:grid-cols-2  text-center text-[#FFFFFF] lg:gap-20 pb-6 max-lg:pb-28">
             <div className="w-full">
               <div className="flex justify-center">
@@ -75,12 +75,10 @@ export default function CoursesOffered() {
             </div>
           </div>
         </div>
-        <div className="w-full h-max absolute  flex items-end ">
-          <img
-            alt=""
-            src={"/Images/Wave/Wave3.png"}
-            className=""
-          />
+      </article>
+      <article>
+        <div className="w-full ">
+          <img alt="" src={"/Images/Wave/Wave3.png"} className="" />
         </div>
       </article>
       <article className="bg-gradient-to-b from-[#FFFFFF] to-[#FFE4E5] w-full h-full flex justify-center items-end">
