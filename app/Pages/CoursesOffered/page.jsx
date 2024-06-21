@@ -155,7 +155,7 @@ export default function CoursesOffered() {
         </div>
       </article>
       <article className="bg-red-100">
-        <img alt="" src={"/Images/Wave/Wave2.png"} className=" h-max " />
+        <img alt="" src={"/Images/Wave/wave2.png"} className=" h-max " />
       </article>
       <article className=" w-full h-full flex justify-center items-end ">
         <div className="max-w-6xl w-full  flex justify-center px-3 pt-8  lg:pt-10 pb-16 gap-9 max-lg:px-3 max-sm:pl-3 max-sm:pr-5  ">
