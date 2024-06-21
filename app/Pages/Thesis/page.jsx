@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { BsSearch } from "react-icons/bs";
 import ImgwaveMany from "../../../public/Images/Wave/wavemany.png"
+import Image from "next/image";
 
 const truncateText = (text, maxLength) => {
   if (text.length > maxLength) {
