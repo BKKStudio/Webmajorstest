@@ -89,15 +89,15 @@ export default function DocumentPage() {
 
   return (
     <main className="py-24 bg-gradient-to-b from-white to-[#991F23] w-full flex justify-center">
-      <article className="max-w-6xl w-full">
+      <article className="max-w-6xl w-full flex flex-col">
         <div className="flex justify-center">
           <div className="max-w-6xl w-full text-[#991F23] flex flex-col gap-4">
             <span className="text-3xl">ดาวน์โหลดเอกสาร</span>
             <div className="w-full h-0.5 bg-[#991F23]"></div>
             <div className="grid grid-cols-3 w-full h-full max-lg:grid-cols-1 max-lg:px-4 ">
-              <Image src={imgBuilding1} alt="" className="w-full " />
-              <Image src={imgBuilding2} alt="" className="w-full " />
-              <Image src={imgBuilding3} alt="" className="w-full " />
+              <Image src={imgBuilding1} alt="" className="w-full h-full" />
+              <Image src={imgBuilding2} alt="" className="w-full h-full" />
+              <Image src={imgBuilding3} alt="" className="w-full h-full" />
             </div>
           </div>
         </div>
