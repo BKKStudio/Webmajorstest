@@ -88,7 +88,7 @@ export default function DocumentPage() {
   };
 
   return (
-    <main className="py-24 bg-gradient-to-b from-white to-[#991F23] w-full flex justify-center">
+    <main className="py-24 bg-gradient-to-b from-white to-[#991F23] w-full h-full flex justify-center">
       <article className="max-w-6xl w-full flex flex-col">
         <div className="flex justify-center">
           <div className="max-w-6xl w-full text-[#991F23] flex flex-col gap-4">
