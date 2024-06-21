@@ -95,9 +95,9 @@ export default function DocumentPage() {
             <span className="text-3xl">ดาวน์โหลดเอกสาร</span>
             <div className="w-full h-0.5 bg-[#991F23]"></div>
             <div className="grid grid-cols-3 w-full h-full max-lg:grid-cols-1 max-lg:px-4 ">
-              <Image src={imgBuilding1} alt="" className="w-full h-full" />
-              <Image src={imgBuilding2} alt="" className="w-full h-full" />
-              <Image src={imgBuilding3} alt="" className="w-full h-full" />
+              <Image src={imgBuilding1} alt="" className="w-full " />
+              <Image src={imgBuilding2} alt="" className="w-full " />
+              <Image src={imgBuilding3} alt="" className="w-full " />
             </div>
           </div>
         </div>
