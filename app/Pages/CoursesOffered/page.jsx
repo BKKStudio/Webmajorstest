@@ -33,7 +33,7 @@ export default function CoursesOffered() {
               <div className="flex justify-center">
                 <Image
                   alt=""
-                  src={"/Images/icons/image.png"}
+                  src={"/Images/Icons/image.png"}
                   width={100}
                   height={100}
                   className="max-sm:w-3/6"
@@ -54,7 +54,7 @@ export default function CoursesOffered() {
               <div className="flex justify-center">
                 <Image
                   alt=""
-                  src={"/Images/icons/devops.png"}
+                  src={"/Images/Icons/devops.png"}
                   width={100}
                   height={100}
                   className="max-sm:w-3/6"
@@ -76,7 +76,7 @@ export default function CoursesOffered() {
               <div className="flex justify-center">
                 <Image
                   alt=""
-                  src={"/Images/icons/Network.png"}
+                  src={"/Images/Icons/Network.png"}
                   width={100}
                   height={100}
                   className="max-sm:w-3/6"
