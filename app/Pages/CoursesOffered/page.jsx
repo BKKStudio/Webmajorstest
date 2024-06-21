@@ -82,7 +82,7 @@ export default function CoursesOffered() {
         </div>
       </article>
       <article className="bg-gradient-to-b from-[#FFFFFF] to-[#FFE4E5] w-full h-full flex justify-center items-end">
-        <div className="max-w-6xl w-full flex justify-center max-lg:flex-col pt-6 lg:pt-10 pb-36 lg:pb-80 gap-9 max-lg:px-3 max-sm:pl-3 max-sm:pr-5">
+        <div className="max-w-6xl w-full flex justify-center max-lg:flex-col pt-6 lg:pt-10  gap-9 max-lg:px-3 max-sm:pl-3 max-sm:pr-5">
           <div className="flex flex-col text-center bg-[#FFFFFF] text-[#000000] p-3 drop-shadow-lg rounded-3xl">
             <span className="text-3xl max-sm:text-xl pb-4">
               รายวิชาที่เปิดสอน
@@ -153,13 +153,9 @@ export default function CoursesOffered() {
             </div>
           </div>
         </div>
-        <div className="w-full h-full absolute flex items-end ">
-          <img
-            alt=""
-            src={"/Images/Wave/Wave2.png"}
-            className=" h-max absolute"
-          />
-        </div>
+      </article>
+      <article className="bg-red-100">
+        <img alt="" src={"/Images/Wave/Wave2.png"} className=" h-max " />
       </article>
       <article className=" w-full h-full flex justify-center items-end ">
         <div className="max-w-6xl w-full  flex justify-center px-3 pt-8  lg:pt-10 pb-16 gap-9 max-lg:px-3 max-sm:pl-3 max-sm:pr-5  ">
