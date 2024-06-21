@@ -104,7 +104,7 @@ export default function CoursesOffered() {
             <span className="text-3xl max-sm:text-xl pb-4">
               รายวิชาที่เปิดสอน
             </span>
-            <div className="text-sm max-sm:text-xs  py-0.5 text-start">
+            <div className="text-sm max-sm:text-xs px-3 py-0.5 text-start">
               <ul className="list-disc">
                 <li>CPE101 INTRODUCTION TO COMPUTER ENGINEERING</li>
                 <li>CPE161 PROBLEM SOLVING AND COMPUTER PROGRAMMING</li>
