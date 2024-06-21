@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebook, FaYoutube, FaTiktok, FaDiscord } from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaTiktok } from "react-icons/fa";
 import Model1 from "../public/Images/Model/1line.png";
 import Wave from "../public/Images/Wave/Wave.png";
 import wave2 from "../public/Images/Wave/wave2.png"
