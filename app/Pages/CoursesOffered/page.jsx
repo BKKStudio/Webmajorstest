@@ -2,6 +2,20 @@ import React from "react";
 import Link from "next/link";
 import { BsMortarboard, BsReceipt } from "react-icons/bs";
 import Carousel from "../../Components/Carousel";
+import Image from "next/image";
+import Wave3 from "../../../public/Images/Wave/Wave3.png";
+import wave2 from "../../../public/Images/Wave/Wave2.png";
+import ImgContent3 from "../../../public/Images/rsucontent/3.jpg";
+import ImgContent4 from "../../../public/Images/rsucontent/4.jpg";
+import ImgContent5 from "../../../public/Images/rsucontent/5.jpg";
+import ImgContent6 from "../../../public/Images/rsucontent/6.jpg";
+import ImgContent10 from "../../../public/Images/rsucontent/10.jpg";
+import ImgContent7 from "../../../public/Images/rsucontent/7.jpg";
+import ImgContent8 from "../../../public/Images/rsucontent/8.jpg";
+import ImgContent9 from "../../../public/Images/rsucontent/9.jpg";
+import Model2 from "../../../public/Images/Model/2.png";
+import ImgLinecontent1 from "../../../public/Images/Wave/Linecontent.png";
+import ImgLinecontent2 from "../../../public/Images/Wave/Linecontent2.png";
 
 export default function CoursesOffered() {
   return (
@@ -17,10 +31,11 @@ export default function CoursesOffered() {
           <div className="grid grid-cols-3 max-sm:grid-cols-2  text-center text-[#FFFFFF] lg:gap-20 pb-6 max-lg:pb-28">
             <div className="w-full">
               <div className="flex justify-center">
-                <img
+                <Image
                   alt=""
-                  src={"/Images/New folder/image.png"}
+                  src={"/Images/icons/image.png"}
                   width={100}
+                  height={100}
                   className="max-sm:w-3/6"
                 />
               </div>
@@ -37,10 +52,11 @@ export default function CoursesOffered() {
             </div>
             <div className="w-full">
               <div className="flex justify-center">
-                <img
+                <Image
                   alt=""
-                  src={"/Images/New folder/devops.png"}
+                  src={"/Images/icons/devops.png"}
                   width={100}
+                  height={100}
                   className="max-sm:w-3/6"
                 />
               </div>
@@ -58,10 +74,11 @@ export default function CoursesOffered() {
             </div>
             <div className="w-full">
               <div className="flex justify-center">
-                <img
+                <Image
                   alt=""
-                  src={"/Images/New folder/Network.png"}
+                  src={"/Images/icons/Network.png"}
                   width={100}
+                  height={100}
                   className="max-sm:w-3/6"
                 />
               </div>
@@ -78,7 +95,7 @@ export default function CoursesOffered() {
       </article>
       <article>
         <div className="w-full ">
-          <img alt="" src={"/Images/Wave/Wave3.png"} className="" />
+          <Image alt="" src={Wave3} className="" />
         </div>
       </article>
       <article className="bg-gradient-to-b from-[#FFFFFF] to-[#FFE4E5] w-full h-full flex justify-center items-end">
@@ -122,31 +139,31 @@ export default function CoursesOffered() {
           </div>
           <div className="flex flex-col items-center gap-3 max-sm:gap-1">
             <div className="w-[399px] max-lg:w-auto">
-              <img
-                src="/Images/rsucontent/10.jpg"
+              <Image
+                src={ImgContent10}
                 alt=""
                 className="drop-shadow-md rounded-3xl"
               />
             </div>
             <div className="flex flex-row items-center gap-3 max-sm:gap-1">
               <div className="w-[245px] max-lg:w-auto max-lg:h-auto">
-                <img
-                  src="/Images/rsucontent/7.jpg"
+                <Image
+                  src={ImgContent7}
                   alt=""
                   className="drop-shadow-md rounded-3xl"
                 />
               </div>
               <div className="flex w-[138px] max-lg:w-auto">
-                <img
-                  src="/Images/rsucontent/8.jpg"
+                <Image
+                  src={ImgContent8}
                   alt=""
                   className="drop-shadow-md rounded-3xl"
                 />
               </div>
             </div>
             <div className="w-[399px] max-lg:w-auto">
-              <img
-                src="/Images/rsucontent/9.jpg"
+              <Image
+                src={ImgContent9}
                 alt=""
                 className="drop-shadow-md rounded-3xl"
               />
@@ -155,7 +172,7 @@ export default function CoursesOffered() {
         </div>
       </article>
       <article className="bg-red-100">
-        <img alt="" src={"/Images/Wave/wave2.png"} className=" h-max " />
+        <Image alt="" src={wave2} className=" h-max " />
       </article>
       <article className=" w-full h-full flex justify-center items-end ">
         <div className="max-w-6xl w-full  flex justify-center px-3 pt-8  lg:pt-10 pb-16 gap-9 max-lg:px-3 max-sm:pl-3 max-sm:pr-5  ">
@@ -269,11 +286,11 @@ export default function CoursesOffered() {
               </Link>
             </div>
           </div>
-          <img src="/Images/Model/2.png" alt="" className="max-lg:hidden"></img>
+          <Image src={Model2} alt="" className="max-lg:hidden"></Image>
         </div>
       </article>
       <article className=" overflow-hidden">
-        <img src="/Images/Wave/Linecontent.png" alt="" />
+        <Image src={ImgLinecontent1} alt="" />
         <div className="bg-[#333333] w-full h-full py-24 flex justify-center items-center">
           <div className="max-w-6xl w-full grid grid-cols-2 max-lg:grid-cols-1 justify-center gap-6 px-6">
             <iframe
@@ -319,7 +336,7 @@ export default function CoursesOffered() {
             </div>
           </div>
         </div>
-        <img src="/Images/Wave/Linecontent2.png" alt="" />
+        <Image src={ImgLinecontent2} alt="" />
       </article>
       <article className="bg-white w-full h-full pb-12 relative flex justify-center items-end ">
         <div className="max-w-5xl w-full max-lg:px-3">
@@ -328,19 +345,19 @@ export default function CoursesOffered() {
           </div>
           <div className="w-full h-px bg-[#991F23]"></div>
           <div className="my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">
-            <img
-              src="/Images/rsucontent/3.jpg"
+            <Image
+              src={ImgContent3}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />
             <div className="flex gap-4 justify-between max-lg:flex-wrap max-lg:justify-center">
-              <img
-                src="/Images/rsucontent/4.jpg"
+              <Image
+                src={ImgContent4}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu"
               />
-              <img
-                src="/Images/rsucontent/5.jpg"
+              <Image
+                src={ImgContent5}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu lg:hidden"
               />
@@ -348,26 +365,26 @@ export default function CoursesOffered() {
           </div>
           <div className="max-lg:hidden my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">
             <div className="flex gap-4 justify-between max-lg:flex-wrap max-lg:justify-center">
-              <img
-                src="/Images/rsucontent/5.jpg"
+              <Image
+                src={ImgContent5}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu"
               />
-              <img
-                src="/Images/rsucontent/5.jpg"
+              <Image
+                src={ImgContent5}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu lg:hidden"
               />
             </div>
-            <img
-              src="/Images/rsucontent/6.jpg"
+            <Image
+                src={ImgContent6}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />
           </div>
           <div className="lg:hidden my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">
-            <img
-              src="/Images/rsucontent/6.jpg"
+            <Image
+                src={ImgContent6}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />

@@ -3,6 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaYoutube, FaTiktok, FaDiscord } from "react-icons/fa";
 import Carousel from "@/app/Components/Carousel";
+import Img1 from "@/public/Images/Slide/Slide1.jpg";
+import Wave2Rotate from "@/public/Images/Wave/wave2Rotate.png"
+import ImgContent1 from "../../../public/Images/Slide/labhardware.png"
+import ImgContent2 from "../../../public/Images/Slide/labsoftware.png"
+import ImgContent3 from "../../../public/Images/Slide/labnetwork.png"
+
+
 
 export default function GettoKnow() {
   return (
@@ -62,8 +69,8 @@ export default function GettoKnow() {
               <span className="text-xl font-bold text-center">
                 ทำความรู้จักวิศวะคอมพิวเตอร์
               </span>
-              <img
-                src="/Images/Slide/Slide1.jpg"
+              <Image
+                src={Img1}
                 className="d-block w-100"
                 alt="..."
               />
@@ -239,7 +246,7 @@ export default function GettoKnow() {
         </div>
       </article>
       <article className="bg-gray-100 ">
-        <img src="/Images/Wave/wave2Rotate.png" alt="" />
+        <Image src={Wave2Rotate} alt="" />
         <div className="flex justify-center w-full py-12">
           <div className=" max-w-6xl w-full flex flex-col justify-center">
             <div className="text-center text-xl text-[#838383]">
@@ -262,19 +269,19 @@ export default function GettoKnow() {
                 <span className="w-full bg-[#991F23] text-center text-white py-2 rounded-t-2xl">
                   Hardware 
                 </span>
-                <img src="/Images/Slide/labhardware.png" alt="" />
+                <Image src={ImgContent1} alt="" />
               </div>
               <div className="flex flex-col lg:px-24 px-6 mt-4">
                 <span className="w-full bg-[#991F23] text-center text-white py-2 rounded-t-2xl">
                   Software 
                 </span>
-                <img src="/Images/Slide/labsoftware.png" alt="" />
+                <Image src={ImgContent2} alt="" />
               </div>
               <div className="flex flex-col lg:px-24 px-6 mt-4">
                 <span className="w-full bg-[#991F23] text-center text-white py-2 rounded-t-2xl">
                   Network
                 </span>
-                <img src="/Images/Slide/labnetwork.png" alt="" />
+                <Image src={ImgContent3} alt="" />
               </div>
             </div>
           </div>

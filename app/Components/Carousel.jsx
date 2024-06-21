@@ -1,4 +1,9 @@
 import React from "react";
+import Image from "next/image";
+import Img1 from "../../public/Images/Slide/Slide1.jpg";
+import Img2 from "../../public/Images/Slide/Imgslide/labhardware1.png";
+import Img3 from "../../public/Images/Slide/Imgslide/labnetwork1.png";
+import Img4 from "../../public/Images/Slide/Imgslide/labsoftware1.png";
 
 export default function Carousel() {
   return (
@@ -9,32 +14,16 @@ export default function Carousel() {
     >
       <div className="carousel-inner">
         <div className="carousel-item active" data-bs-interval="10000">
-          <img
-            src="/Images/Slide/Slide1.jpg"
-            className="d-block w-100"
-            alt="..."
-          />
+          <Image src={Img1} className="d-block w-100" alt="All Learn" />
         </div>
         <div className="carousel-item" data-bs-interval="2000">
-          <img
-            src="/Images/Slide/drive-download-20240616T081428Z-001/labhardware1.png"
-            className="d-block w-100"
-            alt="..."
-          />
+          <Image src={Img2} className="d-block w-100" alt="Labhardware" />
         </div>
         <div className="carousel-item">
-          <img
-            src="/Images/Slide/drive-download-20240616T081428Z-001/labnetwork1.png"
-            className="d-block w-100"
-            alt="..."
-          />
+          <Image src={Img3} className="d-block w-100" alt="Labnetwork" />
         </div>
         <div className="carousel-item">
-          <img
-            src="/Images/Slide/drive-download-20240616T081428Z-001/labsoftware1.png"
-            className="d-block w-100"
-            alt="..."
-          />
+          <Image src={Img4} className="d-block w-100" alt="labsoftware" />
         </div>
       </div>
       <button
@@ -58,5 +47,3 @@ export default function Carousel() {
     </div>
   );
 }
-
-

@@ -2,6 +2,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import ImgwaveMany from "../../../../public/Images/Wave/wavemany.png"
 
 export default function Page({ params }) {
   const [data, setData] = useState(null);
@@ -71,7 +73,7 @@ export default function Page({ params }) {
         </div>
       </article>
       <article>
-        <img src="/Images/Wave/wavemany.png" alt="" />
+        <Image src={ImgwaveMany} alt="" />
       </article>
     </main>
   );

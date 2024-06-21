@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaFacebook, FaYoutube, FaTiktok, FaDiscord } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -91,7 +92,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-5 flex max-sm:flex-col  max-sm:items-center justify-center sm:items-end gap-3">
-            <img src="/Images/Logocpe/rsulg.png" alt="" width={100}/>
+            <Image src="/Images/Logocpe/rsulg.png" alt="" width={100} height={100}/>
             <div className="w-full text-center max-sm:flex max-sm:flex-col max-sm:gap-2">
                 <div className="w-full h-px bg-white"></div>
                 <span className="sm:font-light text-sm ">มหาวิทยาลัยรังสิต 52/347 หมู่บ้านเมืองเอก ถนนเอกประจิม ตำบลหลักหก อำเภอเมืองปทุมธานี จังหวัดปทุมธานี</span>

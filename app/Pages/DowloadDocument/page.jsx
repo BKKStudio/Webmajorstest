@@ -1,5 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import imgBuilding1 from "../../../public/Images/Building5/1.jpg"
+import imgBuilding2 from "../../../public/Images/Building5/2.jpg"
+import imgBuilding3 from "../../../public/Images/Building5/3.jpg"
 
 export default function DocumentPage() {
   const [data, setdata] = useState([]);
@@ -84,9 +88,9 @@ export default function DocumentPage() {
             <span className="text-3xl">ดาวน์โหลดเอกสาร</span>
             <div className="w-full h-0.5 bg-[#991F23]"></div>
            <div className="grid grid-cols-3 w-full h-full max-lg:grid-cols-1 ">
-           <img src="/Images/Building5/71892904_10156452731461714_7674473432527929344_n.jpg" alt=""  className="w-full h-full"/>
-           <img src="/Images/Building5/119218431_10157389153146714_9137659395797821468_n.jpg" alt=""  className="w-full h-full"/>
-           <img src="/Images/Building5/187572304_10157962107786714_6037108049482486883_n.jpg" alt=""  className="w-full h-full"/>
+           <Image src={imgBuilding1} alt=""  className="w-full h-full"/>
+           <Image src={imgBuilding2} alt=""  className="w-full h-full"/>
+           <Image src={imgBuilding3} alt=""  className="w-full h-full"/>
            </div>
           </div>
         </div>

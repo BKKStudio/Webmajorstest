@@ -1,5 +1,12 @@
 import React from 'react'
+import Image from 'next/image';
 import Link from "next/link";
+import ImgMap from "../../../public/Images/ContactImg/RSU-MAP.jpg"
+import ImgMapRsu from "../../../public/Images/ContactImg/MAP_RSU-2017.jpg"
+
+import wave2 from "../../../public/Images/Wave/Wave2.png"
+import Wave3Rotate from "../../../public/Images/Wave/Wave3Rotate.png"
+import Imggear from "../../../public/Images/Building5/Gear.jpg"
 
 export default function Contact() {
   return (
@@ -10,15 +17,15 @@ export default function Contact() {
               <span className="text-3xl max-sm:text-xl">แผนที่เดินทาง</span>
               <span className="text-xl max-sm:text-sm">มหาวิทยาลัยรังสิต</span>
               <div className=" pb-40 lg:pt-12 pt-6 lg:pb-96 max-lg:px-3 max-sm:pl-2 max-sm:pr-5">
-                <img alt="" src={"/Images/ContactImg/RSU-MAP.jpg"} className="shadow-md rounded-[30px]"/>
+                <Image alt="" src={ImgMap} className="shadow-md rounded-[30px]"/>
               </div>
             </div>
         </div>
         <div className="w-full h-full absolute flex items-end">
-          <img
+          <Image
             alt=""
-            src={"/Images/Wave/Wave2.png"}
-            className=" h-max absolute"
+            src={wave2}
+            className=" h-max "
           />
         </div>
       </article>
@@ -29,14 +36,14 @@ export default function Contact() {
               <span className="text-3xl max-sm:text-xl">แผนที่ใน</span>
               <span className="text-xl max-sm:text-sm">มหาวิทยาลัยรังสิต</span>
               <div className="pt-6 pb-36 lg:pb-96 max-lg:px-3 max-sm:pl-2 max-sm:pr-5">
-                <img alt="" src={"/Images/ContactImg/MAP_RSU-2017.jpg"} className="shadow-md rounded-[30px]"/>
+                <Image  alt="" src={ImgMapRsu} className="shadow-md rounded-[30px]"/>
               </div>
           </div>
         </div>
         <div className="w-full h-full absolute flex items-end ">
-          <img
+          <Image
             alt=""
-            src={"/Images/Wave/Wave3Rotate.png"}
+            src={Wave3Rotate}
             className=" h-max absolute"
           />
         </div>
@@ -48,7 +55,7 @@ export default function Contact() {
               <span className="text-3xl max-sm:text-xl">สถานที่ติดต่อ</span>
               <span className="text-xl max-sm:text-sm">ภาควิชาวิศวกรรมคอมพิวเตอร์ วิทยาลัยวิศวกรรมศาสตร์ มหาวิทยาลัยรังสิต</span>
               <div className="pt-6 lg:pt-9 max-lg:px-3 max-sm:pl-2 max-sm:pr-5">
-                <img alt="" src={"/Images/Building5/Gear.jpg"} className="shadow-md rounded-[30px]"/>
+                <Image alt="" src={Imggear} className="shadow-md rounded-[30px]"/>
               </div>
               <div className="flex flex-col pt-6 lg:pt-9 pl-4 lg:pl-0 pb-24 text-left gap-3 "> 
                   <span className="text-xl max-sm:text-xs font-normal">

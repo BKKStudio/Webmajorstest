@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { BsXLg, BsFillTelephoneFill } from "react-icons/bs";
+import Image from "next/image";
 
 export default function Page() {
   const [LoginOpen, setLoginOpen] = useState(false);
@@ -129,7 +130,7 @@ export default function Page() {
             <div className="max-w-2xl w-full bg-white flex justify-center rounded-xl py-4">
               <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1 max-lg:gap-2">
                 <div className="flex justify-center">
-                  <img src={ModalData.img_profile} alt="" width={290} />
+                  <Image src={ModalData.img_profile} alt="" width={290} height={290} />
                 </div>
                 <div className="flex flex-col gap-1 px-4  max-lg:mt-4">
                   <div className="flex gap-2">
@@ -187,7 +188,7 @@ export default function Page() {
           <div className="w-full h-1 bg-[#333333] rounded-xl"></div>
           <div className="w-full flex justify-center pt-8">
             <div className="min-w-80 h-full bg-white flex flex-col p-3 items-center gap-3 rounded-xl">
-              <img src={manager.img_profile} alt="" width={290} />
+              <Image src={manager.img_profile} alt="" width={290} height={290}/>
               <div className="flex flex-col items-center">
                 <span className="text-xl">{manager.fullname}</span>
                 <span className="text-base font-bold text-[#991F23]">
@@ -206,7 +207,7 @@ export default function Page() {
             {data.map((item) => (
               <div className="flex justify-center" key={item.ID}>
                 <div className="max-w-80 h-full bg-white flex flex-col py-3 px-3 items-center gap-3 rounded-xl">
-                  <img src={item.img_profile} alt="" width={290} />
+                  <img src={item.img_profile} alt="" width={290}/>
                   <div className="flex flex-col items-center">
                     <span className="text-xl">{item.fullname}</span>
                     <span className="text-base font-bold text-[#991F23] text-center">

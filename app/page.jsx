@@ -4,6 +4,17 @@ import Image from "next/image";
 import { FaFacebook, FaYoutube, FaTiktok, FaDiscord } from "react-icons/fa";
 import Model1 from "../public/Images/Model/1line.png";
 import Wave from "../public/Images/Wave/Wave.png";
+import wave2 from "../public/Images/Wave/Wave2.png";
+import wave3 from "../public/Images/Wave/Wave3.png";
+import Wave2Rotate from "../public/Images/Wave/wave2Rotate.png";
+import Logotiktok from "../public/Images/rsucontent/logotiktok.png";
+import Imgcontetn1 from "../public/Images/rsucontent/1.jpg";
+import Imgcontetn2 from "../public/Images/rsucontent/2.jpg";
+import Imgcontetn3 from "../public/Images/rsucontent/3.jpg";
+import Imgcontetn4 from "../public/Images/rsucontent/4.jpg";
+import Imgcontetn5 from "../public/Images/rsucontent/5.jpg";
+import Imgcontetn6 from "../public/Images/rsucontent/6.jpg";
+
 export default function Home() {
   return (
     <main>
@@ -20,7 +31,9 @@ export default function Home() {
               <span className="lg:text-5xl text-base max-sm:text-sm">
                 Computer Engineering
               </span>
-              <span className="lg:text-3xl text-3xl max-sm:text-xl">วิศวกรรมคอมพิวเตอร์</span>
+              <span className="lg:text-3xl text-3xl max-sm:text-xl">
+                วิศวกรรมคอมพิวเตอร์
+              </span>
               <span className="lg:text-xl font-normal  max-sm:text-xs">
                 เรียนครอบคลุมทุกสายงาน Hardware Software Network IOT AI
               </span>
@@ -147,16 +160,8 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full h-full absolute z-0  flex flex-col  justify-between items-end ">
-          <img
-            alt=""
-            src={"/Images/Wave/wave2Rotate.png"}
-            className=" h-= w-full "
-          />
-          <img
-            alt=""
-            src={"/Images/Wave/wave2.png"}
-            className="w-full h-max border-white "
-          />
+          <Image alt="" src={Wave2Rotate} className="  w-full " />
+          <Image alt="" src={wave2} className="w-full h-max border-white " />
         </div>
       </article>
       {/* Video CPE */}
@@ -195,8 +200,8 @@ export default function Home() {
                     "https://www.tiktok.com/@rangsituniversity?is_from_webapp=1&sender_device=pc"
                   }
                 >
-                  <img
-                    src="/Images/rsucontent/logotiktok.png"
+                  <Image
+                    src={Logotiktok}
                     alt=""
                     className="hover:animate-animation-manu"
                   />
@@ -215,8 +220,8 @@ export default function Home() {
                   "https://www.tiktok.com/@rangsituniversity/video/7326506432898108678?is_from_webapp=1&sender_device=pc&web_id=7043781851769259521"
                 }
               >
-                <img
-                  src="/Images/rsucontent/1.jpg"
+                <Image
+                  src={Imgcontetn1}
                   alt=""
                   className="rounded-xl hover:animate-animation-shake"
                 />
@@ -226,8 +231,8 @@ export default function Home() {
                   "https://www.tiktok.com/@rangsituniversity/video/7289769186258160901?is_from_webapp=1&sender_device=pc&web_id=7043781851769259521"
                 }
               >
-                <img
-                  src="/Images/rsucontent/2.jpg"
+                <Image
+                  src={Imgcontetn2}
                   alt=""
                   className="rounded-xl hover:animate-animation-shake"
                 />
@@ -236,12 +241,8 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full h-full absolute z-0  flex flex-col  justify-between items-end ">
-          <img
-            alt=""
-            src={"/Images/Wave/wave2Rotate.png"}
-            className=" h-max w-full "
-          />
-          <img alt="" src={"/Images/Wave/Wave3.png"} className=" h-max " />
+          <Image alt="" src={Wave2Rotate} className=" h-max w-full " />
+          <Image alt="" src={wave3} className=" h-max " />
         </div>
       </article>
       {/* Video CPE */}
@@ -253,19 +254,19 @@ export default function Home() {
           </div>
           <div className="w-full h-px bg-[#991F23]"></div>
           <div className="my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">
-            <img
-              src="/Images/rsucontent/3.jpg"
+            <Image
+              src={Imgcontetn3}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />
             <div className="flex gap-4 justify-between max-lg:flex-wrap max-lg:justify-center">
-              <img
-                src="/Images/rsucontent/4.jpg"
+              <Image
+                src={Imgcontetn4}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu"
               />
-              <img
-                src="/Images/rsucontent/5.jpg"
+              <Image
+                src={Imgcontetn5}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu lg:hidden"
               />
@@ -273,26 +274,26 @@ export default function Home() {
           </div>
           <div className="max-lg:hidden my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">
             <div className="flex gap-4 justify-between max-lg:flex-wrap max-lg:justify-center">
-              <img
-                src="/Images/rsucontent/5.jpg"
+              <Image
+                src={Imgcontetn5}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu"
               />
-              <img
-                src="/Images/rsucontent/5.jpg"
+              <Image
+                src={Imgcontetn5}
                 alt=""
                 className="rounded-xl hover:animate-animation-manu lg:hidden"
               />
             </div>
-            <img
-              src="/Images/rsucontent/6.jpg"
+            <Image
+                src={Imgcontetn6}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />
           </div>
           <div className="lg:hidden my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">
-            <img
-              src="/Images/rsucontent/6.jpg"
+            <Image
+                src={Imgcontetn6}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />

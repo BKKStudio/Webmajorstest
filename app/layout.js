@@ -59,8 +59,8 @@ export default function RootLayout({ children }) {
           content="/Images/Meta.png"
         />
 
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta property="twitter:card" content="/Images/Meta.png" />
+        <meta property="twitter:url" content="/Images/Meta.png" />
         <meta
           property="twitter:title"
           content="วิศวะคอม  ม.รังสิต - CPE Rangsit University"
@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="twitter:image"
-          content="https://metatags.io/images/meta-tags.png"
+          content="/Images/Meta.png"
         />
       </head>
       <body className="font-IBM font-medium p-0 m-0 box-border">

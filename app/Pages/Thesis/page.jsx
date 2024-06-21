@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import React from "react";
 import { BsSearch } from "react-icons/bs";
+import ImgwaveMany from "../../../public/Images/Wave/wavemany.png"
 
 const truncateText = (text, maxLength) => {
   if (text.length > maxLength) {
@@ -185,7 +186,7 @@ export default function Thesis() {
         </div>
       </article>
       <article>
-        <img src="/Images/Wave/wavemany.png" alt="" />
+      <Image src={ImgwaveMany} alt="" />
       </article>
     </main>
   );
