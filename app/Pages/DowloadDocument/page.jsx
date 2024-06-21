@@ -89,52 +89,54 @@ export default function DocumentPage() {
 
   return (
     <main className="py-24 bg-gradient-to-b from-white to-[#991F23]">
-    <div className="flex justify-center">
-      <div className="max-w-6xl w-full text-[#991F23] flex flex-col gap-4">
-        <span className="text-3xl">ดาวน์โหลดเอกสาร</span>
-        <div className="w-full h-0.5 bg-[#991F23]"></div>
-        <div className="grid grid-cols-3 w-full h-full max-lg:grid-cols-1 ">
-          <Image src={imgBuilding1} alt="" className="w-full h-full" />
-          <Image src={imgBuilding2} alt="" className="w-full h-full" />
-          <Image src={imgBuilding3} alt="" className="w-full h-full" />
-        </div>
-      </div>
-    </div>
-    <div className="flex justify-center pt-4">
-      <div className="max-w-6xl w-full flex flex-col gap-4 ">
-        <div className="w-full rounded-lg grid grid-cols-3 max-lg:grid-cols-2 gap-4 max-lg:px-4">
-          {data.map((item) => (
-            <div
-              key={item.ID}
-              className="bg-white flex justify-between shadow-3xl"
-            >
-              <div className="p-4">
-                <div className="font-bold text-xl max-sm:text-base">
-                  หลักสูตรปี {formatYears(item.Year)}
-                </div>
-                <ul className="list-disc pl-8">
-                  <li
-                    onClick={() => fetchPDF(item.rsu36)}
-                    className="cursor-pointer  hover:underline"
-                  >
-                    <span className="text-blue-500">มรส.36</span>
-                  </li>
-                  <li
-                    onClick={() => fetchPDF(item.subjectRelation)}
-                    className="cursor-pointer hover:underline"
-                  >
-                    <span className="text-blue-500">
-                      {" "}
-                      ความสัมพันธ์รายวิชา
-                    </span>
-                  </li>
-                </ul>
-              </div>
+      <article>
+        <div className="flex justify-center">
+          <div className="max-w-6xl w-full text-[#991F23] flex flex-col gap-4">
+            <span className="text-3xl">ดาวน์โหลดเอกสาร</span>
+            <div className="w-full h-0.5 bg-[#991F23]"></div>
+            <div className="grid grid-cols-3 w-full h-full max-lg:grid-cols-1 max-lg:px-4 ">
+              <Image src={imgBuilding1} alt="" className="w-full h-full" />
+              <Image src={imgBuilding2} alt="" className="w-full h-full" />
+              <Image src={imgBuilding3} alt="" className="w-full h-full" />
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
-  </main>
+        <div className="flex justify-center pt-4">
+          <div className="max-w-6xl w-full flex flex-col gap-4 ">
+            <div className="w-full rounded-lg grid grid-cols-3 max-lg:grid-cols-2 gap-4 max-lg:px-4">
+              {data.map((item) => (
+                <div
+                  key={item.ID}
+                  className="bg-white flex justify-between shadow-3xl"
+                >
+                  <div className="p-4">
+                    <div className="font-bold text-xl max-sm:text-base">
+                      หลักสูตรปี {formatYears(item.Year)}
+                    </div>
+                    <ul className="list-disc pl-8">
+                      <li
+                        onClick={() => fetchPDF(item.rsu36)}
+                        className="cursor-pointer  hover:underline"
+                      >
+                        <span className="text-blue-500">มรส.36</span>
+                      </li>
+                      <li
+                        onClick={() => fetchPDF(item.subjectRelation)}
+                        className="cursor-pointer hover:underline"
+                      >
+                        <span className="text-blue-500">
+                          {" "}
+                          ความสัมพันธ์รายวิชา
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
   );
 }
