@@ -4,8 +4,7 @@ import Image from "next/image";
 import { FaFacebook, FaYoutube, FaTiktok, FaDiscord } from "react-icons/fa";
 import Model1 from "../public/Images/Model/1line.png";
 import Wave from "../public/Images/Wave/Wave.png";
-import wave2 from "../public/Images/Wave/Wave2.png";
-import wave3 from "../public/Images/Wave/Wave3.png";
+import wave2 from "../public/Images/Wave/wave2.png"
 import Wave2Rotate from "../public/Images/Wave/wave2Rotate.png";
 import Logotiktok from "../public/Images/rsucontent/logotiktok.png";
 import Imgcontetn1 from "../public/Images/rsucontent/1.jpg";
@@ -161,7 +160,7 @@ export default function Home() {
         </div>
         <div className="w-full h-full absolute z-0  flex flex-col  justify-between items-end ">
           <Image alt="" src={Wave2Rotate} className="  w-full " />
-          <Image alt="" src={wave2} className="w-full h-max border-white " />
+          <Image alt="" src={"/Images/Wave/wave2.png"} className="w-full h-max border-white " width={1920} height={200} />
         </div>
       </article>
       {/* Video CPE */}
@@ -242,7 +241,7 @@ export default function Home() {
         </div>
         <div className="w-full h-full absolute z-0  flex flex-col  justify-between items-end ">
           <Image alt="" src={Wave2Rotate} className=" h-max w-full " />
-          <Image alt="" src={wave3} className=" h-max " />
+          <Image alt="" src={wave2} className=" h-max " />
         </div>
       </article>
       {/* Video CPE */}

@@ -4,7 +4,7 @@ import { BsMortarboard, BsReceipt } from "react-icons/bs";
 import Carousel from "../../Components/Carousel";
 import Image from "next/image";
 import Wave3 from "../../../public/Images/Wave/Wave3.png";
-import wave2 from "../../../public/Images/Wave/Wave2.png";
+import wave2 from "../../../public/Images/Wave/wave2.png";
 import ImgContent3 from "../../../public/Images/rsucontent/3.jpg";
 import ImgContent4 from "../../../public/Images/rsucontent/4.jpg";
 import ImgContent5 from "../../../public/Images/rsucontent/5.jpg";
