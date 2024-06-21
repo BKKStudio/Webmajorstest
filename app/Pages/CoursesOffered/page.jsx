@@ -204,7 +204,7 @@ export default function CoursesOffered() {
                 <span className="text-xl max-sm:text-xs">29,900</span>
               </div>
             </div>
-            <div className="flex text-center items-center bg-white p-1">
+            <div className="flex text-center justify-between items-center bg-white p-1">
               <div className="text-xl max-lg:w-auto max-sm:text-xs">
                 <span className="flex font-bold text-left pl-5 pt-3 max-sm:pl-2">
                   *ชี้แจงค่าธรรมเนียมแรกเข้าศึกษา ประกอบด้วย
