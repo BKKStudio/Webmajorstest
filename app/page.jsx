@@ -286,14 +286,14 @@ export default function Home() {
               />
             </div>
             <Image
-                src={Imgcontetn6}
+              src={Imgcontetn6}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />
           </div>
           <div className="lg:hidden my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">
             <Image
-                src={Imgcontetn6}
+              src={Imgcontetn6}
               alt=""
               className="rounded-xl hover:animate-animation-manu"
             />

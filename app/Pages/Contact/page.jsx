@@ -4,7 +4,7 @@ import Link from "next/link";
 import ImgMap from "../../../public/Images/ContactImg/RSU-MAP.jpg"
 import ImgMapRsu from "../../../public/Images/ContactImg/MAP_RSU-2017.jpg"
 
-import wave2 from "../../../public/Images/Wave/Wave2.png"
+import wave2 from "../../../public/Images/Wave/wave2.png"
 import Wave3Rotate from "../../../public/Images/Wave/Wave3Rotate.png"
 import Imggear from "../../../public/Images/Building5/Gear.jpg"
 
