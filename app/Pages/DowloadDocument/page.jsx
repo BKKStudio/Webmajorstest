@@ -88,8 +88,8 @@ export default function DocumentPage() {
   };
 
   return (
-    <main className="py-24 bg-gradient-to-b from-white to-[#991F23]">
-      <article>
+    <main className="py-24 bg-gradient-to-b from-white to-[#991F23] w-full flex justify-center">
+      <article className="max-w-6xl w-full">
         <div className="flex justify-center">
           <div className="max-w-6xl w-full text-[#991F23] flex flex-col gap-4">
             <span className="text-3xl">ดาวน์โหลดเอกสาร</span>
@@ -101,8 +101,8 @@ export default function DocumentPage() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center pt-4">
-          <div className="max-w-6xl w-full flex flex-col gap-4 ">
+        <div className="flex  pt-4 w-full">
+          <div className="">
             <div className="w-full rounded-lg grid grid-cols-3 max-lg:grid-cols-2 gap-4 max-lg:px-4">
               {data.map((item) => (
                 <div
