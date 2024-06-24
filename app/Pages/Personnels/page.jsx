@@ -110,7 +110,7 @@ export default function Page() {
       >
         {/* Modal */}
         <div
-          className={`max-w-2xl w-full transition-all mt-8 flex flex-col gap-8 max-lg:px-5 ${
+          className={`max-w-2xl w-full transition-all mt-2 flex flex-col gap-3 max-lg:px-5 ${
             LoginOpen ? "scale-100 opacity-100" : "scale-125 opacity-0"
           }`}
         >
@@ -130,7 +130,7 @@ export default function Page() {
             <div className="max-w-2xl w-full bg-white flex justify-center rounded-xl py-4">
               <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1 max-lg:gap-2">
                 <div className="flex justify-center">
-                  <Image src={ModalData.img_profile} alt="" width={290} height={290} />
+                  <Image src={ModalData.img_profile} alt="" width={290} height={290} className="max-sm:w-2/4" />
                 </div>
                 <div className="flex flex-col gap-1 px-4  max-lg:mt-4">
                   <div className="flex gap-2">
