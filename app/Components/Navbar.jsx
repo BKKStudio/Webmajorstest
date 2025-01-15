@@ -1,18 +1,52 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { BsList, BsXLg } from "react-icons/bs";
+import { useRouter } from "next/navigation";
+
+
 
 export default function Navbar() {
   const [OpenModal, setOpenModal] = useState(false);
   const [Lineanimation, setLineanimation] = useState("");
+  const [path, setPath] = useState("");
+  const router = useRouter();
+  const currentPath = router.pathname;
+  
+  const animationLine = (data) => {
+    setLineanimation(data);
+    let currentPath = window.location.pathname;
+    setPath(currentPath);
+  };
+  useEffect(() => {
+    setPath(window.location.pathname);
+  }, []);
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    if (currentPath === "/Pages/GettoKnow") setLineanimation("1");
+    else if (currentPath === "/Pages/CoursesOffered") setLineanimation("2");
+    else if (currentPath === "/Pages/Thesis") setLineanimation("3");
+    else if (currentPath === "/Pages/Personnels") setLineanimation("4");
+    else if (currentPath === "/Pages/DowloadDocument") setLineanimation("5");
+    else if (currentPath === "/Pages/Contact") setLineanimation("6");
+  }, []);
+  
+  const navLinks = [
+    { label: "รู้จักวิศวะคอมพิวเตอร์", path: "/Pages/GettoKnow", id: "1" },
+    { label: "รายวิชาที่เปิดสอน", path: "/Pages/CoursesOffered", id: "2" },
+    { label: "ปริญญานิพนธ์", path: "/Pages/Thesis", id: "3" },
+    { label: "บุคลากร", path: "/Pages/Personnels", id: "4" },
+    { label: "ดาวน์โหลดเอกสาร", path: "/Pages/DowloadDocument", id: "5" },
+    { label: "ติดต่อ", path: "/Pages/Contact", id: "6" },
+  ];
+
   return (
     <div className="fixed w-full z-101">
       <nav className="w-full bg-white flex  justify-center z-100 ">
         <div className="max-w-6xl w-full flex justify-between py-1 bg-white px-3 ">
-          <Link href={"/"} onClick={() => setLineanimation("")}>
+          <Link href={"/"} onClick={() => animationLine("")}>
             <Image
               src={"/Images/Rsu_logo.png"}
               width={150}
@@ -166,200 +200,44 @@ export default function Navbar() {
         </div>
       </div>
       {/* UnderNav slideManu */}
-      <div className="w-full bg-gray-100 z-100 py-3  flex max-lg:hidden justify-center">
+      <div className="w-full bg-gray-100 z-100 py-3 flex max-lg:hidden justify-center">
         <div className="max-w-6xl w-full px-4">
-          <div className="flex gap-4 ">
-            <div className={`h-full relative `}>
-              <Link
-                href="/Pages/GettoKnow"
-                className={`no-underline nav  `}
-                // onMouseEnter={() => setLineanimation("1")}
-                onClick={() => {
-                  setLineanimation("1");
-                }}
-              >
+          <div className="flex gap-4">
+            {navLinks.map(({ label, path, id }) => (
+              <div key={id} className="h-full relative">
+                <Link
+                  href={path}
+                  className="no-underline nav"
+                  onClick={() => animationLine(id)}
+                >
+                  <div
+                    className={`${
+                      Lineanimation == id 
+                        ? "hidden"
+                        : "hover:text-[#991F23]"
+                    }`}
+                  >
+                    {label}
+                  </div>
+                  <div
+                    className={`${
+                      Lineanimation == id 
+                        ? "text-[#991F23]"
+                        : "hidden"
+                    }`}
+                  >
+                    {label}
+                  </div>
+                </Link>
                 <div
                   className={`${
-                    Lineanimation == "1" ? "hidden" : "hover:text-[#991F23]"
+                    Lineanimation == id 
+                      ? "w-full h-[3px] absolute bg-[#991F23] rounded-xl left-0 -bottom-[10px]"
+                      : "w-0"
                   }`}
-                >
-                  รู้จักวิศวะคอมพิวเตอร์
-                </div>
-                <div
-                  className={`${
-                    Lineanimation == "1" ? "text-[#991F23]" : "hidden"
-                  }`}
-                >
-                  รู้จักวิศวะคอมพิวเตอร์
-                </div>
-              </Link>
-              <div
-                className={`${
-                  Lineanimation == "1"
-                    ? "w-full h-[3px] absolute bg-[#991F23]  rounded-xl left-0 -bottom-[10px]"
-                    : "w-0"
-                }`}
-              ></div>
-            </div>
-            <div className={`h-full relative `}>
-              <Link
-                href="/Pages/CoursesOffered"
-                className={`no-underline nav  `}
-                onClick={() => {
-                  setLineanimation("2");
-                }}
-              >
-                <div
-                  className={`${
-                    Lineanimation == "2" ? "hidden" : "hover:text-[#991F23]"
-                  }`}
-                >
-                  รายวิชาที่เปิดสอน
-                </div>
-                <div
-                  className={`${
-                    Lineanimation == "2" ? "text-[#991F23]" : "hidden"
-                  }`}
-                >
-                  รายวิชาที่เปิดสอน
-                </div>
-              </Link>
-              <div
-                className={`${
-                  Lineanimation == "2"
-                    ? "w-full h-[3px] absolute bg-[#991F23]  rounded-xl left-0 -bottom-[10px]"
-                    : "w-0"
-                }`}
-              ></div>
-            </div>
-            <div className={`h-full relative `}>
-              <Link
-                href="/Pages/Thesis"
-                className={`no-underline nav  `}
-                // onMouseEnter={() => setLineanimation("1")}
-                onClick={() => {
-                  setLineanimation("3");
-                }}
-              >
-                <div
-                  className={`${
-                    Lineanimation == "3" ? "hidden" : "hover:text-[#991F23]"
-                  }`}
-                >
-                  ปริญญานิพนธ์
-                </div>
-                <div
-                  className={`${
-                    Lineanimation == "3" ? "text-[#991F23]" : "hidden"
-                  }`}
-                >
-                  ปริญญานิพนธ์
-                </div>
-              </Link>
-              <div
-                className={`${
-                  Lineanimation == "3"
-                    ? "w-full h-[3px] absolute bg-[#991F23]  rounded-xl left-0 -bottom-[10px]"
-                    : "w-0"
-                }`}
-              ></div>
-            </div>
-            <div className={`h-full relative `}>
-              <Link
-                href="/Pages/Personnels"
-                className={`no-underline nav  `}
-                // onMouseEnter={() => setLineanimation("1")}
-                onClick={() => {
-                  setLineanimation("4");
-                }}
-              >
-                <div
-                  className={`${
-                    Lineanimation == "4" ? "hidden" : "hover:text-[#991F23]"
-                  }`}
-                >
-                  บุคลากร
-                </div>
-                <div
-                  className={`${
-                    Lineanimation == "4" ? "text-[#991F23]" : "hidden"
-                  }`}
-                >
-                  บุคลากร
-                </div>
-              </Link>
-              <div
-                className={`${
-                  Lineanimation == "4"
-                    ? "w-full h-[3px] absolute bg-[#991F23]  rounded-xl left-0 -bottom-[10px]"
-                    : "w-0"
-                }`}
-              ></div>
-            </div>
-            <div className={`h-full relative `}>
-              <Link
-                href="/Pages/DowloadDocument"
-                className={`no-underline nav  `}
-                // onMouseEnter={() => setLineanimation("1")}
-                onClick={() => {
-                  setLineanimation("5");
-                }}
-              >
-                <div
-                  className={`${
-                    Lineanimation == "5" ? "hidden" : "hover:text-[#991F23]"
-                  }`}
-                >
-                  ดาวน์โหลดเอกสาร
-                </div>
-                <div
-                  className={`${
-                    Lineanimation == "5" ? "text-[#991F23]" : "hidden"
-                  }`}
-                >
-                  ดาวน์โหลดเอกสาร
-                </div>
-              </Link>
-              <div
-                className={`${
-                  Lineanimation == "5"
-                    ? "w-full h-[3px] absolute bg-[#991F23]  rounded-xl left-0 -bottom-[10px]"
-                    : "w-0"
-                }`}
-              ></div>
-            </div>
-            <div className={`h-full relative `}>
-              <Link
-                href="/Pages/Contact"
-                className={`no-underline nav  `}
-                // onMouseEnter={() => setLineanimation("1")}
-                onClick={() => {
-                  setLineanimation("6");
-                }}
-              >
-                <div
-                  className={`${
-                    Lineanimation == "6" ? "hidden" : "hover:text-[#991F23]"
-                  }`}
-                >
-                  ติดต่อ
-                </div>
-                <div
-                  className={`${
-                    Lineanimation == "6" ? "text-[#991F23]" : "hidden"
-                  }`}
-                >
-                  ติดต่อ
-                </div>
-              </Link>
-              <div
-                className={`${
-                  Lineanimation == "6"
-                    ? "w-full h-[3px] absolute bg-[#991F23]  rounded-xl left-0 -bottom-[10px]"
-                    : "w-0"
-                }`}
-              ></div>
-            </div>
+                ></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import Footer from "./Components/Footer";
 export default function RootLayout({ children }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
+
   }, []);
 
   return (

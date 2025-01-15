@@ -3,22 +3,20 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ImgwaveMany from "../../../../public/Images/Wave/wavemany.png"
+import ImgwaveMany from "../../../../public/Images/Wave/wavemany.png";
+import axios from "axios";
 
 export default function Page({ params }) {
+  const Domain = process.env.DOMAIN; // Use NEXT_PUBLIC_ for public variables
   const [data, setData] = useState(null);
   const { id } = params;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://testapiwebmajors.vercel.app/api/thesisRoutes/${id}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const datas = await response.json();
-        setData(datas);
+        const response = await axios.post(`${Domain}api/thesis/${id}`);
+        setData(response.data.data);
+        console.log(response);
+        
       } catch (error) {
         console.error("Error fetching data:", error);
       }

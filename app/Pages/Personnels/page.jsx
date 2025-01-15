@@ -16,7 +16,7 @@ export default function Page() {
     room: "",
   });
   const [education, setEducation] = useState([]);
-
+  const Domain = process.env.DOMAIN;
   const handleSeemore = (id) => {
     setLoginOpen(true);
     const filteredItem = data.find((item) => item.ID === id);
@@ -36,13 +36,7 @@ export default function Page() {
 
   const reqImg = useCallback(async (filename) => {
     try {
-      const response = await fetch("https://testapiwebmajors.vercel.app/send-img", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ fileName: filename }),
-      });
+      const response = await fetch(`${Domain}api/files/preview/${filename}`);
       if (!response.ok) {
         throw new Error("Failed to fetch image");
       }
@@ -53,52 +47,57 @@ export default function Page() {
       return null;
     }
   }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        `https://testapiwebmajors.vercel.app/api/personnelRoutes`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const datas = await response.json();
+      const filteredData = datas.filter(
+        (item) => item.position !== "หัวหน้าภาควิชาวิศวกรรมคอมพิวเตอร์"
+      );
+      setData(filteredData);
+
+      const managerData = datas.find(
+        (item) => item.position === "หัวหน้าภาควิชาวิศวกรรมคอมพิวเตอร์"
+      );
+
+      if (managerData) {
+        const managerImage = await reqImg(managerData.img_profile);
+        setManager({ ...managerData, img_profile: managerImage });
+      }
+
+      if (filteredData.length > 0) {
+        const images = await Promise.all(
+          filteredData.map((item) => reqImg(item.img_profile))
+        );
+        const updatedData = filteredData.map((item, index) => ({
+          ...item,
+          img_profile: images[index],
+        }));
+        setData(updatedData);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-         `https://testapiwebmajors.vercel.app/api/personnelRoutes`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const datas = await response.json();
-        const filteredData = datas.filter(
-          (item) => item.position !== "หัวหน้าภาควิชาวิศวกรรมคอมพิวเตอร์"
-        );
-        setData(filteredData);
-
-        const managerData = datas.find(
-          (item) => item.position === "หัวหน้าภาควิชาวิศวกรรมคอมพิวเตอร์"
-        );
-
-        if (managerData) {
-          const managerImage = await reqImg(managerData.img_profile);
-          setManager({ ...managerData, img_profile: managerImage });
-        }
-
-        if (filteredData.length > 0) {
-          const images = await Promise.all(
-            filteredData.map((item) => reqImg(item.img_profile))
-          );
-          const updatedData = filteredData.map((item, index) => ({
-            ...item,
-            img_profile: images[index],
-          }));
-          setData(updatedData);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
     fetchData();
   }, [reqImg]);
 
-
   if (!manager || !data) {
-    return <div>Loading...</div>;
+    return (
+      <div className="w-full flex flex-col justify-center items-center py-12 h-screen bg-gradient-to-b from-white to-[#991F23] ">
+        <div className="spinner-border text-black" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div>Loading...</div>
+      </div>
+    );
   }
 
   return (
@@ -130,7 +129,13 @@ export default function Page() {
             <div className="max-w-2xl w-full bg-white flex justify-center rounded-xl py-4">
               <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1 max-lg:gap-2">
                 <div className="flex justify-center">
-                  <Image src={ModalData.img_profile} alt="" width={290} height={290} className="max-sm:w-2/4" />
+                  <Image
+                    src={ModalData.img_profile}
+                    alt=""
+                    width={290}
+                    height={290}
+                    className="max-sm:w-2/4"
+                  />
                 </div>
                 <div className="flex flex-col gap-1 px-4  max-lg:mt-4">
                   <div className="flex gap-2">
@@ -188,7 +193,12 @@ export default function Page() {
           <div className="w-full h-1 bg-[#333333] rounded-xl"></div>
           <div className="w-full flex justify-center pt-8">
             <div className="min-w-80 h-full bg-white flex flex-col p-3 items-center gap-3 rounded-xl">
-              <Image src={manager.img_profile} alt="" width={290} height={290}/>
+              <Image
+                src={manager.img_profile}
+                alt=""
+                width={290}
+                height={290}
+              />
               <div className="flex flex-col items-center">
                 <span className="text-xl">{manager.fullname}</span>
                 <span className="text-base font-bold text-[#991F23]">
@@ -207,7 +217,7 @@ export default function Page() {
             {data.map((item) => (
               <div className="flex justify-center" key={item.ID}>
                 <div className="max-w-80 h-full bg-white flex flex-col py-3 px-3 items-center gap-3 rounded-xl">
-                  <img src={item.img_profile} alt="" width={290}/>
+                  <img src={item.img_profile} alt="" width={290} />
                   <div className="flex flex-col items-center">
                     <span className="text-xl">{item.fullname}</span>
                     <span className="text-base font-bold text-[#991F23] text-center">

@@ -1,27 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function DocumentPage() {
   const [data, setdata] = useState([]);
+  const Domain = process.env.DOMAIN;
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://testapiwebmajors.vercel.app/api/documents",
-        {
-          cache: "no-store",
-        }
-      );
-      if (!response.ok) {
+      const response = await axios.get(`${Domain}api/Documents/getall-documents`);
+      if (response.status != 200) {
         throw new Error("Failed to fetch data");
       }
-      const datas = await response.json();
-      setdata(datas);
+      setdata(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
   const formatYears = (year) => {
     const academicYearDate = new Date(year, 0); // Month is 0 (January) to avoid offset issues
     const academicYearOptions = { year: "numeric", timeZone: "Asia/Bangkok" };
@@ -33,45 +28,13 @@ export default function DocumentPage() {
     return year;
   };
 
-  const [newDocument, setNewDocument] = useState({
-    Year: "",
-    rsu36: "",
-    subjectRelation: "",
-  });
-
-  const fetchDataByID = async (id) => {
-    try {
-      const response = await fetch(
-        `https://testapiwebmajors.vercel.app/api/documents/${id}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const datas = await response.json();
-      // แปลง Year ให้เป็น พ.ศ.
-
-      setNewDocument(datas);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchPDF = async (fileName) => {
     try {
-      const response = await fetch(
-        "https://testapiwebmajors.vercel.app/send-pdf",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ fileName }),
-        }
-      );
+      const response = await fetch(`${Domain}api/files/download/${fileName}`);
       if (!response.ok) {
         throw new Error("Failed to fetch PDF");
       }
@@ -83,13 +46,23 @@ export default function DocumentPage() {
     }
   };
 
+  if (!data) {
+    return (
+      <div className="w-full flex flex-col justify-center items-center py-12 h-screen bg-gradient-to-b from-white to-[#991F23] ">
+        <div className="spinner-border text-black" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div>Loading...</div>
+      </div>
+    );
+  }
   return (
     <main className="py-24 bg-gradient-to-b from-white to-[#991F23] w-full h-full flex justify-center">
       <article className="max-w-6xl w-full flex flex-col">
         <div className="flex justify-center">
           <div className="max-w-6xl w-full text-[#991F23] flex flex-col gap-4">
             <span className="text-3xl">ดาวน์โหลดเอกสาร</span>
-            <div className="w-full h-0.5 bg-[#991F23]"></div>
+            <div className="w-full h-0.5 bg-[black]"></div>
           </div>
         </div>
         <div className="flex  pt-4 w-full">
