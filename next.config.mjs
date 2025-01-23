@@ -2,7 +2,7 @@
 
 const nextConfig = {  
     env: {
-        DOMAIN: 'http://localhost:5001/',
+        DOMAIN: 'https://api-web-majors-uat.vercel.app/',
   },};
 
 export default nextConfig;

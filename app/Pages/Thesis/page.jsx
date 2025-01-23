@@ -33,6 +33,7 @@ export default function Thesis() {
 
   const fetchData = async () => {
     try {
+
       setLoading(true); // เริ่มโหลด
       const response = await axios.post(
         `${Domain}api/get-all-thesis`,
@@ -50,7 +51,8 @@ export default function Thesis() {
     }
   };
 
-  useEffect(() => {
+  useEffect(  () =>  {
+
     fetchData();
   }, [Paged]);
 
