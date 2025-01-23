@@ -1,0 +1,10 @@
+{
+  "/not-found": "app/not-found.js",
+  "/Pages/Thesis/page": "app/Pages/Thesis/page.js",
+  "/Pages/Personnels/page": "app/Pages/Personnels/page.js",
+  "/Pages/GettoKnow/page": "app/Pages/GettoKnow/page.js",
+  "/Pages/DowloadDocument/page": "app/Pages/DowloadDocument/page.js",
+  "/Pages/Thesis/[id]/page": "app/Pages/Thesis/[id]/page.js",
+  "/Pages/CoursesOffered/page": "app/Pages/CoursesOffered/page.js",
+  "/Pages/Contact/page": "app/Pages/Contact/page.js"
+}
