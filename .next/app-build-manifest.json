@@ -11,10 +11,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/Pages/Thesis/page.js"
     ],
-    "/page": [
+    "/Pages/CoursesOffered/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/Pages/CoursesOffered/page.js"
+    ],
+    "/Pages/GettoKnow/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/Pages/GettoKnow/page.js"
     ],
     "/not-found": [
       "static/chunks/webpack.js",

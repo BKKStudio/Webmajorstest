@@ -23,7 +23,7 @@ export default function Thesis() {
 
   const [Paged, setPaged] = useState({
     currentPaged: 1,
-    pasgeSize: 12,
+    pageSize: 12,
     search: "",
     year:0
   });
@@ -42,6 +42,8 @@ export default function Thesis() {
       if (response.status !== 200) {
         throw new Error("Failed to fetch data");
       }
+      console.log(response);
+      
       setData(response.data.data); // Axios automatically parses JSON
       console.log(data);
     } catch (error) {
