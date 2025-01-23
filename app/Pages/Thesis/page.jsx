@@ -22,10 +22,10 @@ export default function Thesis() {
   const Domain = process.env.DOMAIN; // Use NEXT_PUBLIC_ for public variables
 
   const [Paged, setPaged] = useState({
-    Currentpaged: 1,
-    Pasgesize: 12,
-    Search: "",
-    Year:0
+    currentPaged: 1,
+    pasgeSize: 12,
+    search: "",
+    year:0
   });
 
   // สถานะ loading สำหรับการแสดง spinner
@@ -35,7 +35,7 @@ export default function Thesis() {
     try {
       setLoading(true); // เริ่มโหลด
       const response = await axios.post(
-        `${Domain}api/thesis/getall-thesis`,
+        `${Domain}api/get-all-thesis`,
         Paged
       );
       if (response.status !== 200) {
@@ -58,9 +58,9 @@ export default function Thesis() {
     setPaged((prevPaged) => {
       const newPage =
         action === "prev"
-          ? Math.max(prevPaged.Currentpaged - 1, 1)
-          : prevPaged.Currentpaged + 1;
-      return { ...prevPaged, Currentpaged: newPage };
+          ? Math.max(prevPaged.currentPaged - 1, 1)
+          : prevPaged.currentPaged + 1;
+      return { ...prevPaged, currentPaged: newPage };
     });
   };
 
@@ -78,7 +78,7 @@ export default function Thesis() {
   const handleSearch = async (data) => {
     setPaged((prev) => ({
       ...prev,
-      Search: data, //
+      search: data, //
     }));
     fetchData();
   };
@@ -87,7 +87,7 @@ export default function Thesis() {
     setAcademicYear(year)
     setPaged((prev) => ({
       ...prev,
-     Year:parseInt(year), //
+     year:parseInt(year), //
     }));
     fetchData();
   };
@@ -223,21 +223,21 @@ export default function Thesis() {
                     : "bg-white"
                 }`}
                 onClick={() => onBtnChangPage("prev")}
-                disabled={Paged.Currentpaged <= 0 ? true : false}
+                disabled={Paged.currentPaged <= 0 ? true : false}
               >
                 {"<<"} Prev
               </button>
               <span className="font-bold text-xl text-white">
-                Page : {Paged.Currentpaged} of {data?.totalPage}
+                Page : {Paged.currentPaged} of {data?.totalPage}
               </span>
               <button
                 className={`p-2 shadow-3xl rounded-xl cursor-pointer ${
-                  Paged.Currentpaged >= data?.totalPage
+                  Paged.currentPaged >= data?.totalPage
                     ? "bg-gray-300  text-gray-500"
                     : "bg-white"
                 }`}
                 onClick={() => onBtnChangPage("next")}
-                disabled={Paged.Currentpaged >= data?.totalPage ? true : false}
+                disabled={Paged.currentPaged >= data?.totalPage ? true : false}
               >
                 Next {">>"}
               </button>
