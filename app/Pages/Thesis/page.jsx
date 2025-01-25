@@ -150,11 +150,11 @@ export default function Thesis() {
                 <BsSearch size={14} />
               </button>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 ">
               <select
                 name="academicYear"
                 id="academicYear"
-                className="text-center bg-white text-gray-600 text-xs w-72 rounded-xl py-2 "
+                className="text-center bg-white text-gray-600 text-xs w-[334px] h-9 rounded-xl py-2 "
                 value={academicYear}
                 onChange={(e) => handleFilteredYear(e.target.value)}
               >
