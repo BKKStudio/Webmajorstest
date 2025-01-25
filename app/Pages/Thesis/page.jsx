@@ -173,7 +173,7 @@ export default function Thesis() {
                 <div className="text-center text-xl w-full text-gray-600 flex items-center h-72">
                   <p className="text-center w-full">
                     {" "}
-                    ปีการศึกษานี้ยังไม่มีการเพิ่มข้อมูลปริญญานิพนธ์
+                    ไม่พบข้อมูลปริญญานิพนธ์
                   </p>
                 </div>
               ) : (
