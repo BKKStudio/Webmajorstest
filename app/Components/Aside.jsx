@@ -5,7 +5,7 @@ import { FaFacebook ,FaYoutube ,FaTiktok } from "react-icons/fa";
 
 export default function Aside() {
   return (
-    <aside className="fixed    z-101 pt-36 pl-3 flex flex-col gap-2 max-lg:hidden">
+    <aside className="fixed    z-101 pt-36 pl-3 flex flex-col gap-2 max-[1452px]:hidden">
       <Link
         href={"https://admissiononline.rsu.ac.th/"}
         className="bg-[#F50000] w-full px-3 py-3 rounded-xl text-white flex gap-1 no-underline"

@@ -18,14 +18,15 @@ export default function Thesis() {
 
   const [data, setData] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
-  const [academicYear, setAcademicYear] =  useState(0);
-  const Domain = process.env.DOMAIN; // Use NEXT_PUBLIC_ for public variables
+  const [academicYear, setAcademicYear] = useState(0);
+  const [currentYearOptions, setCurrentYearOptions] = useState([]);
+  const Domain = process.env.DOMAIN;
 
   const [Paged, setPaged] = useState({
     currentPaged: 1,
     pageSize: 12,
     search: "",
-    year:0
+    year: 0,
   });
 
   // สถานะ loading สำหรับการแสดง spinner
@@ -33,17 +34,14 @@ export default function Thesis() {
 
   const fetchData = async () => {
     try {
-
       setLoading(true); // เริ่มโหลด
       const response = await axios.post(
-        `${Domain}api/get-all-thesis`,
+        `${Domain}api/thesis/get-all-thesis`,
         Paged
       );
       if (response.status !== 200) {
         throw new Error("Failed to fetch data");
       }
-      console.log(response);
-      
       setData(response.data.data); // Axios automatically parses JSON
       console.log(data);
     } catch (error) {
@@ -53,8 +51,13 @@ export default function Thesis() {
     }
   };
 
-  useEffect(  () =>  {
-
+  useEffect(() => {
+    const currentYear = new Date().getFullYear();
+    const years = [];
+    for (let year = currentYear; year >= 2014; year--) {
+      years.push(year);
+    }
+    setCurrentYearOptions(years);
     fetchData();
   }, [Paged]);
 
@@ -84,21 +87,22 @@ export default function Thesis() {
       ...prev,
       search: data, //
     }));
-    fetchData();
   };
 
   const handleFilteredYear = async (year) => {
-    setAcademicYear(year)
+    setAcademicYear(year);
     setPaged((prev) => ({
       ...prev,
-     year:parseInt(year), //
+      year: parseInt(year), //
     }));
-    fetchData();
   };
 
   const handleClear = () => {
-    setSearchTerm(""); // ล้างข้อความใน input field
-    fetchData();
+    setSearchTerm("");
+    setPaged((prev) => ({
+      ...prev,
+      search: "", //
+    }));
   };
   if (loading) {
     return (
@@ -147,9 +151,6 @@ export default function Thesis() {
               </button>
             </div>
             <div className="flex gap-4">
-              <label htmlFor="academicYear" className="sr-only">
-                Select Academic Year
-              </label>
               <select
                 name="academicYear"
                 id="academicYear"
@@ -157,64 +158,54 @@ export default function Thesis() {
                 value={academicYear}
                 onChange={(e) => handleFilteredYear(e.target.value)}
               >
-                <option value="0" className="text-center">
-                  ปีการศึกษา
-                </option>
-                <option value="2021" className="text-center">
-                  2564
-                </option>
-                <option value="2020" className="text-center">
-                  2563
-                </option>
-                <option value="2019" className="text-center">
-                  2562
-                </option>
-                <option value="2018" className="text-center">
-                  2561
-                </option>
-                <option value="2017" className="text-center">
-                  2560
-                </option>
-                <option value="2016" className="text-center">
-                  2559
-                </option>
-                <option value="2014" className="text-center">
-                  2557
-                </option>
+                <option value={0}>เลือกปีการศึกษา</option>
+                {currentYearOptions.map((year) => (
+                  <option key={year} value={year}>
+                    {formatYears(year)}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
           {!loading && (
-            <div className="w-full grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1  justify-center items-center py-12 gap-5">
-              {data?.allThesis?.map((item) => (
-                <div
-                  className="bg-white drop-shadow-xl min-w-64  h-72 rounded-xl relative"
-                  key={item.ID}
-                >
-                  <div className="absolute p-2 text-white flex justify-end w-full">
-                    <span className="bg-[#991F23] px-3 rounded-xl text-[12px]">
-                      {formatYears(item.AcademicYear)}
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-3 items-center ">
-                    <div className="flex flex-col gap-3 justify-centers items-center">
-                      <div className="font-bold text-xl px-3 pt-10 text-center">
-                        {item.TitleProject}
-                      </div>
-                      <div className="w-3/4 h-0.5 bg-black"></div>
-                      <div className="text-center flex flex-col justify-between w-full h-full text-sm px-2">
-                        {truncateText(item.Abstract, 100)}
-                      </div>
-                    </div>
-                    <Link
-                      href={`/Pages/Thesis/${item.ID}`}
-                      className="w-full h-full text-center text-[#991F23]"
-                    >
-                      ดูเพิ่มเติม
-                    </Link>
-                  </div>
+            <div>
+             {data?.allThesis?.length === 0 ? (
+                <div className="text-center text-xl w-full text-gray-600 flex items-center h-72">
+                 <p className="text-center w-full"> ปีการศึกษานี้ยังไม่มีการเพิ่มข้อมูลปริญญานิพนธ์</p>
                 </div>
-              ))}
+              ) : (
+               <div className="w-full grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 justify-center items-center py-12 gap-5">
+                 {data?.allThesis?.map((item) => (
+                  <div
+                    className="bg-white drop-shadow-xl min-w-64 rounded-xl relative"
+                    key={item.ID}
+                  >
+                    <div className="absolute p-2 text-white flex justify-end w-full">
+                      <span className="bg-[#991F23] px-3 rounded-xl text-[12px]">
+                        {formatYears(item.AcademicYear)}
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-3 justify-between items-center">
+                      <div className="flex flex-col gap-3 justify-centers items-center">
+                        <div className="font-bold text-xl  px-3 w-full h-28 mt-10 flex justify-center items-center  text-center">
+                          {item.TitleProject}
+                        </div>
+                        <div className="w-3/4 h-0.5 bg-black"></div>
+                        <div className="text-center flex flex-col justify-between w-full h-full text-sm px-2">
+                          {truncateText(item.Abstract, 100)}
+                        </div>
+                      </div>
+                      <Link
+                        href={`/Pages/Thesis/${item.ID}`}
+                        className="w-full h-full text-center flex items-end justify-center pb-4 text-[#991F23]"
+                      >
+                        ดูเพิ่มเติม
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+               </div>
+              )}
             </div>
           )}
 
@@ -232,7 +223,7 @@ export default function Thesis() {
                 {"<<"} Prev
               </button>
               <span className="font-bold text-xl text-white">
-                Page : {Paged.currentPaged} of {data?.totalPage}
+                Page : {Paged.currentPaged} of {data?.totalPage || 0}
               </span>
               <button
                 className={`p-2 shadow-3xl rounded-xl cursor-pointer ${

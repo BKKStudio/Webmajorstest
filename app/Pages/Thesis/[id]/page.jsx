@@ -13,10 +13,8 @@ export default function Page({ params }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(`${Domain}api/thesis/${id}`);
-        setData(response.data.data);
-        console.log(response);
-        
+        const response = await axios.get(`${Domain}api/thesis/get-by-id/${id}`);
+        setData(response.data.data);        
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -24,13 +22,26 @@ export default function Page({ params }) {
 
     fetchData();
   }, []);
+
+  const formatYears = (year) => {
+    const academicYearDate = new Date(year, 0); // Month is 0 (January) to avoid offset issues
+    const academicYearOptions = { year: "numeric", timeZone: "Asia/Bangkok" };
+    const thaiYearFormatter = new Intl.DateTimeFormat(
+      "th-TH",
+      academicYearOptions
+    );
+    year = thaiYearFormatter.format(academicYearDate).replace("พ.ศ. ", "");
+    return year;
+  };
+
   if (data == null) {
     return (
-      <main className="pt-16 bg-gradient-to-b from-white to-[#991F23] ">
-        <article className="w-full flex justify-center mt-16">
-          <div>Loadding</div>
-        </article>
-      </main>
+      <div className="w-full flex flex-col justify-center items-center py-12 h-screen bg-gradient-to-b from-white to-[#991F23] ">
+        <div className="spinner-border text-black" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div>Loading...</div>
+      </div>
     );
   }
   return (
@@ -49,13 +60,13 @@ export default function Page({ params }) {
           >
             {"<<"}ย้อนกลับ
           </Link>
-          <div className="bg-white drop-shadow-xl min-w-64 py-6 rounded-xl bg-white relative">
+          <div className="drop-shadow-xl min-w-64  rounded-xl bg-white relative">
             <div className="absolute p-2 text-white flex justify-end w-full">
               <span className="bg-[#991F23] px-12 py-1 rounded-xl text-[12px]">
-                {data.AcademicYear}
+                {formatYears(data.AcademicYear)}
               </span>
             </div>
-            <div className="flex flex-col gap-3 lg:px-5 max-lg:px-3 pt-14">
+            <div className="flex flex-col py-6 gap-3 lg:px-5 max-lg:px-3 ">
               <div className="font-bold  lg:text-xl  ">
                 <div>
                   หัวข้อ:{" "}
