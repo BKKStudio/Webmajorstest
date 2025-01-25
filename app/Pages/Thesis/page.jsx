@@ -126,25 +126,25 @@ export default function Thesis() {
           </div>
           <div className="w-full flex justify-between mt-4 max-sm:flex-col gap-3 items-center">
             <div className="flex items-center">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className=" border-gray-300 py-2 w-72 text-center rounded-l-xl  text-sm  "
-                placeholder="ค้นหาปริญญานิพนธ์"
-              />
-              {searchTerm && (
+              <div className="flex justify-end items-center">
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="focus:outline-none  py-2 w-72 text-center rounded-l-xl relative  text-sm  "
+                  placeholder="ค้นหาปริญญานิพนธ์"
+                />
                 <button
                   type="button"
                   onClick={handleClear}
-                  className="bg-white  text-gray-600 h-9 px-3"
+                  className={`${!searchTerm ? "hidden" : "absolute  shadow-3xl bg-gray-300 text-gray-600  p-1 rounded-full"} `}
                 >
                   <MdClear />
                 </button>
-              )}
+              </div>
               <button
                 type="submit"
-                className="bg-white h-9 px-3 rounded-r-xl"
+                className="bg-white  h-9 px-3 rounded-r-xl"
                 onClick={() => handleSearch(searchTerm)}
               >
                 <BsSearch size={14} />
@@ -169,42 +169,45 @@ export default function Thesis() {
           </div>
           {!loading && (
             <div>
-             {data?.allThesis?.length === 0 ? (
+              {data?.allThesis?.length === 0 ? (
                 <div className="text-center text-xl w-full text-gray-600 flex items-center h-72">
-                 <p className="text-center w-full"> ปีการศึกษานี้ยังไม่มีการเพิ่มข้อมูลปริญญานิพนธ์</p>
+                  <p className="text-center w-full">
+                    {" "}
+                    ปีการศึกษานี้ยังไม่มีการเพิ่มข้อมูลปริญญานิพนธ์
+                  </p>
                 </div>
               ) : (
-               <div className="w-full grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 justify-center items-center py-12 gap-5">
-                 {data?.allThesis?.map((item) => (
-                  <div
-                    className="bg-white drop-shadow-xl min-w-64 rounded-xl relative"
-                    key={item.ID}
-                  >
-                    <div className="absolute p-2 text-white flex justify-end w-full">
-                      <span className="bg-[#991F23] px-3 rounded-xl text-[12px]">
-                        {formatYears(item.AcademicYear)}
-                      </span>
-                    </div>
-                    <div className="flex flex-col gap-3 justify-between items-center">
-                      <div className="flex flex-col gap-3 justify-centers items-center">
-                        <div className="font-bold text-xl px-3 w-full h-28 mt-10 flex justify-center items-center  text-center">
-                          {item.TitleProject}
-                        </div>
-                        <div className="w-3/4 h-0.5 bg-black"></div>
-                        <div className="text-center flex flex-col justify-between w-full h-full text-sm px-2">
-                          {truncateText(item.Abstract, 100)}
-                        </div>
+                <div className="w-full grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 justify-center items-center py-12 gap-5">
+                  {data?.allThesis?.map((item) => (
+                    <div
+                      className="bg-white drop-shadow-xl min-w-64 rounded-xl relative"
+                      key={item.ID}
+                    >
+                      <div className="absolute p-2 text-white flex justify-end w-full">
+                        <span className="bg-[#991F23] px-3 rounded-xl text-[12px]">
+                          {formatYears(item.AcademicYear)}
+                        </span>
                       </div>
-                      <Link
-                        href={`/Pages/Thesis/${item.ID}`}
-                        className="w-full h-full text-center flex items-end justify-center pb-4 text-[#991F23]"
-                      >
-                        ดูเพิ่มเติม
-                      </Link>
+                      <div className="flex flex-col gap-3 justify-between items-center">
+                        <div className="flex flex-col gap-3 justify-centers items-center">
+                          <div className="font-bold text-xl px-3 w-full h-28 mt-10 flex justify-center items-center  text-center">
+                            {item.TitleProject}
+                          </div>
+                          <div className="w-3/4 h-0.5 bg-black"></div>
+                          <div className="text-center flex flex-col justify-between w-full h-full text-sm px-2">
+                            {truncateText(item.Abstract, 100)}
+                          </div>
+                        </div>
+                        <Link
+                          href={`/Pages/Thesis/${item.ID}`}
+                          className="w-full h-full text-center flex items-end justify-center pb-4 text-[#991F23]"
+                        >
+                          ดูเพิ่มเติม
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                ))}
-               </div>
+                  ))}
+                </div>
               )}
             </div>
           )}
