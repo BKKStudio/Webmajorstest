@@ -150,7 +150,7 @@ export default function Thesis() {
                 <BsSearch size={14} />
               </button>
             </div>
-            <div className="flex gap-4 ">
+            <div className="flex gap-4 text-center justify-center">
               <select
                 name="academicYear"
                 id="academicYear"
