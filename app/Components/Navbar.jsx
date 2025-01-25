@@ -166,10 +166,10 @@ export default function Navbar() {
         </div>
       </nav>
       <div
-        className={`w-full absolute lg:hidden bg-white shadow-xl ${
+        className={`w-full absolute  lg:hidden bg-white shadow-xl ${
           OpenModal === false
             ? "z-0 h-0 overflow-hidden duration-500"
-            : "h-68 z-50 overflow-hidden  duration-500"
+            : "h-68 w-full z-50 overflow-hidden  duration-500"
         }`}
       >
         <div className="flex flex-col py-3 items-center justify-center gap-3">

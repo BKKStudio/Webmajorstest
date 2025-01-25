@@ -187,7 +187,7 @@ export default function Thesis() {
                     </div>
                     <div className="flex flex-col gap-3 justify-between items-center">
                       <div className="flex flex-col gap-3 justify-centers items-center">
-                        <div className="font-bold text-xl  px-3 w-full h-28 mt-10 flex justify-center items-center  text-center">
+                        <div className="font-bold text-xl bg-red-400  w-full h-28 mt-10 flex justify-center items-center  text-center">
                           {item.TitleProject}
                         </div>
                         <div className="w-3/4 h-0.5 bg-black"></div>
