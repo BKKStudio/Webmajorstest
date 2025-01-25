@@ -154,13 +154,13 @@ export default function Thesis() {
               <select
                 name="academicYear"
                 id="academicYear"
-                className="text-center bg-white text-gray-600 text-xs w-[334px] h-9 rounded-xl py-2 "
+                className="text-center bg-white text-gray-600 text-xs w-[334px] h-9 rounded-xl "
                 value={academicYear}
                 onChange={(e) => handleFilteredYear(e.target.value)}
               >
-                <option value={0}>เลือกปีการศึกษา</option>
+                <option value={0} className="text-center">เลือกปีการศึกษา</option>
                 {currentYearOptions.map((year) => (
-                  <option key={year} value={year}>
+                  <option key={year} value={year} className="text-center">
                     {formatYears(year)}
                   </option>
                 ))}
