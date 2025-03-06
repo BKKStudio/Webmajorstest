@@ -8,42 +8,46 @@ export default function DocumentPage() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${Domain}api/Documents/getall-documents`);
-      if (response.status != 200) {
-        throw new Error("Failed to fetch data");
-      }
+      const response = await axios.get(
+        `${Domain}api/documents/get-all-documents`
+      );
       setdata(response.data.data);
+      console.log(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
   const formatYears = (year) => {
-    const academicYearDate = new Date(year, 0); // Month is 0 (January) to avoid offset issues
-    const academicYearOptions = { year: "numeric", timeZone: "Asia/Bangkok" };
-    const thaiYearFormatter = new Intl.DateTimeFormat(
-      "th-TH",
-      academicYearOptions
-    );
-    year = thaiYearFormatter.format(academicYearDate).replace("พ.ศ. ", "");
-    return year;
+    return year + 543;
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const fetchPDF = async (fileName) => {
+  const convertBase64ToBlob = (base64String, mimeType = "application/pdf") => {
     try {
-      const response = await fetch(`${Domain}api/files/download/${fileName}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch PDF");
+      const cleanedBase64 = base64String.replace(
+        /^data:application\/pdf;base64,/,
+        ""
+      );
+      const byteCharacters = atob(cleanedBase64);
+      const byteNumbers = new Uint8Array(byteCharacters.length);
+
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
       }
-      const pdfBlob = await response.blob();
-      const pdfUrl = URL.createObjectURL(pdfBlob);
-      window.open(pdfUrl, "_blank");
+
+      return new Blob([byteNumbers], { type: mimeType });
     } catch (error) {
-      console.error("Error fetching PDF:", error);
+      console.error("❌ Error converting base64 to Blob:", error);
+      return null;
     }
+  };
+
+  const convertFileToBlobUrl = (base64String) => {
+    const blob = convertBase64ToBlob(base64String);
+    return blob ? URL.createObjectURL(blob) : null;
   };
 
   if (!data) {
@@ -65,13 +69,13 @@ export default function DocumentPage() {
             <div className="w-full h-0.5 bg-[black]"></div>
           </div>
         </div>
-        <div className="flex  pt-4 w-full">
+        <div className=" pt-4 w-full">
           <div className="">
-            <div className="w-full rounded-lg grid grid-cols-3 max-lg:grid-cols-2 gap-4 max-lg:px-4">
+            <div className="w-full  rounded-lg flex justify-between  gap-3">
               {data.map((item) => (
                 <div
                   key={item.ID}
-                  className="bg-white flex justify-between shadow-3xl"
+                  className="bg-white w-full h-full flex justify-between shadow-3xl"
                 >
                   <div className="p-4">
                     <div className="font-bold text-xl max-sm:text-base">
@@ -79,19 +83,26 @@ export default function DocumentPage() {
                     </div>
                     <ul className="list-disc pl-8">
                       <li
-                        onClick={() => fetchPDF(item.rsu36)}
                         className="cursor-pointer  hover:underline"
                       >
-                        <span className="text-blue-500">มรส.36</span>
+                        <a
+                          href={convertFileToBlobUrl(item.rsu_36_base64)}
+                          target="_blank"
+                          className="text-blue-600 font-semibold text-lg"
+                        >
+                          มรส.36
+                        </a>
                       </li>
                       <li
-                        onClick={() => fetchPDF(item.subjectRelation)}
                         className="cursor-pointer hover:underline"
                       >
-                        <span className="text-blue-500">
-                          {" "}
+                          <a
+                          href={convertFileToBlobUrl(item.rsu_subject_base64)}
+                          className="text-blue-600 font-semibold text-lg"
+                          target="_blank"
+                        >
                           ความสัมพันธ์รายวิชา
-                        </span>
+                        </a>
                       </li>
                     </ul>
                   </div>

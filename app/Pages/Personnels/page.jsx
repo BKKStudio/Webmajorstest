@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { BsXLg, BsFillTelephoneFill } from "react-icons/bs";
 import Image from "next/image";
+import axios from "axios";
 
 export default function Page() {
   const [LoginOpen, setLoginOpen] = useState(false);
@@ -34,52 +35,22 @@ export default function Page() {
     }
   };
 
-  const reqImg = useCallback(async (filename) => {
-    try {
-      const response = await fetch(`${Domain}api/files/preview/${filename}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch image");
-      }
-      const imageBlob = await response.blob();
-      return URL.createObjectURL(imageBlob);
-    } catch (error) {
-      console.error("Error fetching image:", error);
-      return null;
-    }
-  }, []);
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        `https://testapiwebmajors.vercel.app/api/personnelRoutes`
+      const response = await axios.get(
+        `${Domain}api/personnels/get-all-personnels`
       );
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const datas = await response.json();
-      const filteredData = datas.filter(
+      const filteredData = response.data.data.filter(
         (item) => item.position !== "หัวหน้าภาควิชาวิศวกรรมคอมพิวเตอร์"
       );
       setData(filteredData);
-
-      const managerData = datas.find(
+      
+      const managerData = response.data.data.find(
         (item) => item.position === "หัวหน้าภาควิชาวิศวกรรมคอมพิวเตอร์"
       );
-
-      if (managerData) {
-        const managerImage = await reqImg(managerData.img_profile);
-        setManager({ ...managerData, img_profile: managerImage });
-      }
-
-      if (filteredData.length > 0) {
-        const images = await Promise.all(
-          filteredData.map((item) => reqImg(item.img_profile))
-        );
-        const updatedData = filteredData.map((item, index) => ({
-          ...item,
-          img_profile: images[index],
-        }));
-        setData(updatedData);
-      }
+     setManager(managerData)
+     console.log(managerData);
+     
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -87,7 +58,7 @@ export default function Page() {
 
   useEffect(() => {
     fetchData();
-  }, [reqImg]);
+  }, []);
 
   if (!manager || !data) {
     return (
@@ -130,7 +101,7 @@ export default function Page() {
               <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1 max-lg:gap-2">
                 <div className="flex justify-center">
                   <Image
-                    src={ModalData.img_profile}
+                    src={ModalData.img_profile_base64}
                     alt=""
                     width={290}
                     height={290}
@@ -194,7 +165,7 @@ export default function Page() {
           <div className="w-full flex justify-center pt-8">
             <div className="min-w-80 h-full bg-white flex flex-col p-3 items-center gap-3 rounded-xl">
               <Image
-                src={manager.img_profile}
+                src={manager.img_profile_base64}
                 alt=""
                 width={290}
                 height={290}
@@ -217,7 +188,7 @@ export default function Page() {
             {data.map((item) => (
               <div className="flex justify-center" key={item.ID}>
                 <div className="max-w-80 h-full bg-white flex flex-col py-3 px-3 items-center gap-3 rounded-xl">
-                  <img src={item.img_profile} alt="" width={290} />
+                  <img src={item.img_profile_base64} alt="" width={290} />
                   <div className="flex flex-col items-center">
                     <span className="text-xl">{item.fullname}</span>
                     <span className="text-base font-bold text-[#991F23] text-center">
