@@ -61,16 +61,16 @@ export default function Page({ params }) {
             {"<<"}ย้อนกลับ
           </Link>
           <div className="drop-shadow-xl min-w-64  rounded-xl bg-white relative">
-            <div className="absolute p-2 text-white flex justify-end w-full">
-              <span className="bg-[#991F23] px-12 py-1 rounded-xl text-[12px]">
+            <div className="absolute p-2 text-white flex justify-end w-full ">
+              <span className="bg-[#991F23] px-12 py-1 rounded-xl text-[12px] ">
                 {formatYears(data.AcademicYear)}
               </span>
             </div>
             <div className="flex flex-col py-6 gap-3 lg:px-5 max-lg:px-3 ">
               <div className="font-bold  lg:text-xl  ">
-                <div>
+                <div className=" max-lg:pt-6">
                   หัวข้อ:{" "}
-                  <span className="font-medium">{data.TitleProject}</span>
+                  <span className="font-medium ">{data.TitleProject}</span>
                 </div>
               </div>
               <div className="w-full  h-0.5 bg-black"></div>
