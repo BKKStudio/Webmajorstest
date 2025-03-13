@@ -98,7 +98,7 @@ export default function Page() {
           </div>
           <div className="w-full flex justify-center">
             <div className="max-w-2xl w-full bg-white flex justify-center rounded-xl py-4">
-              <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1 max-lg:gap-2">
+              <div className=" grid grid-cols-2 gap-3 max-lg:grid-cols-1 max-lg:gap-2">
                 <div className="flex justify-center">
                   <Image
                     src={ModalData.img_profile_base64}
