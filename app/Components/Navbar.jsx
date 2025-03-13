@@ -199,6 +199,9 @@ export default function Navbar() {
           <Link href="/Pages/Contact" className="no-underline text-black">
             ติดต่อ
           </Link>
+          <Link href="/Pages/LearningImage" className="no-underline text-black">
+          บรรยากาศการเรียนการสอน
+          </Link>
         </div>
       </div>
       {/* UnderNav slideManu */}

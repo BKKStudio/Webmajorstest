@@ -7,8 +7,6 @@ import Wave from "../public/Images/Wave/Wave.png";
 import wave2 from "../public/Images/Wave/wave2.png";
 import Wave2Rotate from "../public/Images/Wave/wave2Rotate.png";
 import Logotiktok from "../public/Images/rsucontent/logotiktok.png";
-import Imgcontetn1 from "../public/Images/rsucontent/1.jpg";
-import Imgcontetn2 from "../public/Images/rsucontent/2.jpg";
 import Imgcontetn3 from "../public/Images/rsucontent/3.jpg";
 import Imgcontetn4 from "../public/Images/rsucontent/4.jpg";
 import Imgcontetn5 from "../public/Images/rsucontent/5.jpg";
@@ -328,15 +326,15 @@ export default function Home() {
       {/*  */}
       <article className="bg-white w-full h-full pb-12 relative flex justify-center items-end ">
         <div className="max-w-5xl w-full max-lg:px-3">
-          <div className="w-full flex justify-between items-center pb-2">
-            <div className="text-[#991F23] text-2xl font-bold">
+          <div className="w-full flex justify-between items-center pb-2 max-md:flex-col">
+            <div className="text-[#991F23] text-2xl font-bold ">
               ภาพบรรยากาศการเรียนการสอน
             </div>
             <Link
               href={
                 "/Pages/LearningImage"
               }
-              className="bg-[#991F23]  p-2 rounded-xl text-white no-underline"
+              className="bg-[#991F23]  p-2 rounded-xl text-white no-underline max-md:w-full max-md:text-center"
             >
               รูปภาพทั้งหมด
             </Link>
@@ -393,3 +391,5 @@ export default function Home() {
     </main>
   );
 }
+
+
