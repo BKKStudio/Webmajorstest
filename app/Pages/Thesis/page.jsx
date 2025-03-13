@@ -137,7 +137,11 @@ export default function Thesis() {
                 <button
                   type="button"
                   onClick={handleClear}
-                  className={`${!searchTerm ? "hidden" : "absolute  shadow-3xl bg-gray-300 text-gray-600  p-1 rounded-full"} `}
+                  className={`${
+                    !searchTerm
+                      ? "hidden"
+                      : "absolute  shadow-3xl bg-gray-300 text-gray-600  p-1 rounded-full"
+                  } `}
                 >
                   <MdClear />
                 </button>
@@ -158,9 +162,15 @@ export default function Thesis() {
                 value={academicYear}
                 onChange={(e) => handleFilteredYear(e.target.value)}
               >
-                <option value={0} className="text-center flex justify-center">เลือกปีการศึกษา</option>
+                <option value={0} className="text-center flex justify-center">
+                  เลือกปีการศึกษา
+                </option>
                 {currentYearOptions.map((year) => (
-                  <option key={year} value={year} className="text-center flex justify-center">
+                  <option
+                    key={year}
+                    value={year}
+                    className="text-center flex justify-center"
+                  >
                     {formatYears(year)}
                   </option>
                 ))}
@@ -171,10 +181,7 @@ export default function Thesis() {
             <div>
               {data?.allThesis?.length === 0 ? (
                 <div className="text-center text-xl w-full text-gray-600 flex items-center h-72">
-                  <p className="text-center w-full">
-                    {" "}
-                    ไม่พบข้อมูลปริญญานิพนธ์
-                  </p>
+                  <p className="text-center w-full"> ไม่พบข้อมูลปริญญานิพนธ์</p>
                 </div>
               ) : (
                 <div className="w-full grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 justify-center items-center py-12 gap-5">
@@ -194,8 +201,13 @@ export default function Thesis() {
                             {item.TitleProject}
                           </div>
                           <div className="w-3/4 h-0.5 bg-black"></div>
-                          <div className="text-center flex flex-col justify-between w-full h-full text-sm px-2">
-                            {truncateText(item.Abstract, 100)}
+                          <div
+                            className="text-center flex flex-col justify-between w-full h-full text-sm px-2"
+                            dangerouslySetInnerHTML={{
+                              __html: truncateText(item.Abstract, 100),
+                            }}
+                          >
+                          
                           </div>
                         </div>
                         <Link

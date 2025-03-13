@@ -14,7 +14,7 @@ export default function Page({ params }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${Domain}api/thesis/get-by-id/${id}`);
-        setData(response.data.data);        
+        setData(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -74,9 +74,12 @@ export default function Page({ params }) {
                 </div>
               </div>
               <div className="w-full  h-0.5 bg-black"></div>
-              <div className=" flex flex-col justify-between w-full h-full px-2">
-                {data.Abstract}
-              </div>
+              <div
+                className=" flex flex-col justify-between w-full h-full px-2"
+                dangerouslySetInnerHTML={{
+                  __html: data.Abstract,
+                }}
+              ></div>
             </div>
           </div>
         </div>
