@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaFacebook, FaYoutube, FaTiktok } from "react-icons/fa";
 import Model1 from "../public/Images/Model/1line.png";
 import Wave from "../public/Images/Wave/Wave.png";
-import wave2 from "../public/Images/Wave/wave2.png"
+import wave2 from "../public/Images/Wave/wave2.png";
 import Wave2Rotate from "../public/Images/Wave/wave2Rotate.png";
 import Logotiktok from "../public/Images/rsucontent/logotiktok.png";
 import Imgcontetn1 from "../public/Images/rsucontent/1.jpg";
@@ -13,13 +13,25 @@ import Imgcontetn3 from "../public/Images/rsucontent/3.jpg";
 import Imgcontetn4 from "../public/Images/rsucontent/4.jpg";
 import Imgcontetn5 from "../public/Images/rsucontent/5.jpg";
 import Imgcontetn6 from "../public/Images/rsucontent/6.jpg";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.tiktok.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <main>
       {/* Image */}
       <article className="bg-[#991F23] w-full pt-12 h-full  flex justify-center overflow-hidden items-end">
-        <div className="max-w-6xl w-full   lg:pt-20 max-lg:flex-col max-lg:flex-col-reverse flex max-lg:items-center  lg:justify-between">
+        <div className="max-w-6xl w-full   lg:pt-20  flex max-lg:items-center  lg:justify-between">
           <Image
             alt="Model1"
             src={Model1}
@@ -82,7 +94,7 @@ export default function Home() {
           <div className="grid grid-rows-2 w-full   gap-4 z-100">
             <div className="  p-2 max-lg:mx-3 bg-white rounded-xl ">
               <iframe
-                src="https://www.youtube.com/embed/0B5YzC76cek?si=BFssZFQPx3ZU5yA6"
+                src="https://www.youtube.com/embed/KqmXzI3bLig?si=lEYT86fl1rMGam3v"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -93,7 +105,7 @@ export default function Home() {
             </div>
             <div className="  p-2 max-lg:mx-3 bg-white rounded-xl ">
               <iframe
-                src="https://www.youtube.com/embed/sT9CsdM3lqI?si=KxFxLnies1Aa-pLB"
+                src="https://www.youtube.com/embed/RvUbVqx_LxA?si=0l-nDS9bB0Ghu2n8"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -160,7 +172,13 @@ export default function Home() {
         </div>
         <div className="w-full h-full absolute z-0  flex flex-col  justify-between items-end ">
           <Image alt="" src={Wave2Rotate} className="  w-full " />
-          <Image alt="" src={"/Images/Wave/wave2.png"} className="w-full h-max border-white " width={1920} height={200} />
+          <Image
+            alt=""
+            src={"/Images/Wave/wave2.png"}
+            className="w-full h-max border-white "
+            width={1920}
+            height={200}
+          />
         </div>
       </article>
       {/* Video CPE */}
@@ -169,21 +187,17 @@ export default function Home() {
         <div className="max-w-5xl w-full h-full relative  z-100  flex gap-4 lg:py-[400px] max-lg:py-40 max-lg:grid justify-center items-center   ">
           <div className="flex flex-col gap-3">
             <span className="text-5xl text-white text-center ">
-              RSU CONTENTS
+              CPE RSU CONTENTS
             </span>
             <div className="text-3xl max-lg:text-base max-lg:px-3 text-white text-center flex justify-center gap-3 items-center">
               รับชมข่าวสารต่างๆ ได้ใน{" "}
               <Link
-                href={"https://www.youtube.com/@RangsitUniversity"}
+                href={
+                  "https://www.tiktok.com/@cpe_rsu?is_from_webapp=1&sender_device=pc"
+                }
                 className="bg-black w-max p-2 flex items-center justify-center rounded-full text-white no-underline"
               >
                 <FaTiktok size={25} />
-              </Link>
-              <Link
-                href={"https://www.youtube.com/@RangsitUniversity"}
-                className="bg-[#CD201F] w-max  p-2 flex items-center justify-center rounded-full text-white no-underline"
-              >
-                <FaYoutube size={25} />
               </Link>
               <Link
                 href={"https://www.facebook.com/CPE.RSU"}
@@ -207,35 +221,101 @@ export default function Home() {
                 </Link>
                 <Link
                   href={
-                    "https://www.tiktok.com/@rangsituniversity?is_from_webapp=1&sender_device=pc"
+                    "https://www.tiktok.com/@cpe_rsu?is_from_webapp=1&sender_device=pc"
                   }
                   className="p-3 bg-white rounded-2xl text-black no-underline "
                 >
                   ดูวิดิโอทั้งหมด
                 </Link>
               </div>
-              <Link
-                href={
-                  "https://www.tiktok.com/@rangsituniversity/video/7326506432898108678?is_from_webapp=1&sender_device=pc&web_id=7043781851769259521"
-                }
-              >
-                <Image
-                  src={Imgcontetn1}
-                  alt=""
-                  className="rounded-xl hover:animate-animation-shake"
-                />
-              </Link>
-              <Link
-                href={
-                  "https://www.tiktok.com/@rangsituniversity/video/7289769186258160901?is_from_webapp=1&sender_device=pc&web_id=7043781851769259521"
-                }
-              >
-                <Image
-                  src={Imgcontetn2}
-                  alt=""
-                  className="rounded-xl hover:animate-animation-shake"
-                />
-              </Link>
+              <div className="">
+                <blockquote
+                  className="tiktok-embed  rounded-xl"
+                  cite="https://www.tiktok.com/@cpe_rsu/video/7436348633697488145"
+                  data-video-id="7436348633697488145"
+                  style={{ width: "100%" }}
+                >
+                  <section>
+                    <a
+                      target="_blank"
+                      title="@cpe_rsu"
+                      href="https://www.tiktok.com/@cpe_rsu?refer=embed"
+                    >
+                      @cpe_rsu
+                    </a>{" "}
+                    อย่าลืมมากันเยอะๆน้าาา✨
+                    <a
+                      title="openhouse"
+                      target="_blank"
+                      href="https://www.tiktok.com/tag/openhouse?refer=embed"
+                    >
+                      #openhouse
+                    </a>{" "}
+                    <a
+                      title="rsuopenhouse2024"
+                      target="_blank"
+                      href="https://www.tiktok.com/tag/rsuopenhouse2024?refer=embed"
+                    >
+                      #rsuopenhouse2024
+                    </a>{" "}
+                    <a
+                      title="วิศวะมอรังสิต"
+                      target="_blank"
+                      href="https://www.tiktok.com/tag/%E0%B8%A7%E0%B8%B4%E0%B8%A8%E0%B8%A7%E0%B8%B0%E0%B8%A1%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B4%E0%B8%95?refer=embed"
+                    >
+                      #วิศวะมอรังสิต
+                    </a>{" "}
+                    <a
+                      title="rsu"
+                      target="_blank"
+                      href="https://www.tiktok.com/tag/rsu?refer=embed"
+                    >
+                      #rsu
+                    </a>{" "}
+                    <a
+                      target="_blank"
+                      title="♬ 9 นาฬิกา - SPF"
+                      href="https://www.tiktok.com/music/9-นาฬิกา-6709397607183026177?refer=embed"
+                    >
+                      ♬ 9 นาฬิกา - SPF
+                    </a>
+                  </section>
+                </blockquote>
+              </div>
+              <div>
+                <div className="w-full h-full">
+                  <blockquote
+                    className="tiktok-embed rounded-xl"
+                    cite="https://www.tiktok.com/@cpe_rsu/video/7437030431612062983"
+                    data-video-id="7437030431612062983"
+                    style={{ maxWidth: "605px", minWidth: "325px" }}
+                  >
+                    <section>
+                      <a
+                        target="_blank"
+                        title="@cpe_rsu"
+                        href="https://www.tiktok.com/@cpe_rsu?refer=embed"
+                      >
+                        @cpe_rsu
+                      </a>
+                      <a
+                        title="รังสิต"
+                        target="_blank"
+                        href="https://www.tiktok.com/tag/%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B4%E0%B8%95?refer=embed"
+                      >
+                        #รังสิต
+                      </a>
+                      <a
+                        target="_blank"
+                        title="♬ เสียงต้นฉบับ - แตรวงมิตรสัมพันธ์"
+                        href="https://www.tiktok.com/music/เสียงต้นฉบับ-แตรวงมิตรสัมพันธ์-7219471271162071835?refer=embed"
+                      >
+                        ♬ เสียงต้นฉบับ - แตรวงมิตรสัมพันธ์
+                      </a>
+                    </section>
+                  </blockquote>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -248,8 +328,18 @@ export default function Home() {
       {/*  */}
       <article className="bg-white w-full h-full pb-12 relative flex justify-center items-end ">
         <div className="max-w-5xl w-full max-lg:px-3">
-          <div className="text-[#991F23] text-2xl font-bold">
-            ภาพบรรยากาศการเรียนการสอน
+          <div className="w-full flex justify-between items-center pb-2">
+            <div className="text-[#991F23] text-2xl font-bold">
+              ภาพบรรยากาศการเรียนการสอน
+            </div>
+            <Link
+              href={
+                "/Pages/LearningImage"
+              }
+              className="bg-[#991F23]  p-2 rounded-xl text-white no-underline"
+            >
+              รูปภาพทั้งหมด
+            </Link>
           </div>
           <div className="w-full h-px bg-[#991F23]"></div>
           <div className="my-4 flex lg:justify-between justify-center  gap-4 max-lg:flex-wrap">

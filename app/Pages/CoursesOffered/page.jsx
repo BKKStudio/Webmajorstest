@@ -110,14 +110,13 @@ export default function CoursesOffered() {
                 <li>CPE161 PROBLEM SOLVING AND COMPUTER PROGRAMMING</li>
                 <li>CPE218 DIGITAL CIRCUITS DESIGN</li>
                 <li>CPE219 DIGITAL CIRCUITS DESIGN LABORATORY</li>
-                <li>CPE231 COMPUTER ENGINEERING MATHEMATICS 1</li>
+                <li>CPE231 COMPUTER ENGINEERING MATHEMATICS I</li>
                 <li>CPE263 OBJECT-ORIENTED PROGRAMMING</li>
                 <li>CPE223 ELECTRIC CIRCUIT ENGINEERING</li>
                 <li>CPE241 INTERNET OF THINGS</li>
                 <li>CPE360 ALGORITHMS AND DATA STRUCTURES</li>
                 <li>CPE225 ELECTRONIC CIRCUIT ENGINEERING</li>
                 <li>CPE226 ELECTRONIC CIRCUIT ENGINEERING LABORATORY</li>
-                <li>CPE270 FUNDAMENTAL OF ARTIFICIAL INTELLIGENCE</li>
                 <li>CPE270 FUNDAMENTAL OF ARTIFICIAL INTELLIGENCE</li>
                 <li>CPE308 SIGNALS AND SYSTEMS</li>
                 <li>CPE326 DATA COMMUNICATION AND DATA NETWORKS</li>
@@ -132,8 +131,8 @@ export default function CoursesOffered() {
                 <li>CPE441 SYSTEM AND SOFTWARE ENGINEERING</li>
                 <li>CPE363 APPLICATION DEVELOPMENT</li>
                 <li>CPE419 COMPUTER OPERATING SYSTEMS</li>
-                <li>CPE491 APPLICATION DEVELOPMENT</li>
-                <li>CPE492 COMPUTER OPERATING SYSTEMS</li>
+                <li>CPE491 SENIOR PROJECT I</li>
+                <li>CPE492 SENIOR PROJECT  II</li>
               </ul>
             </div>
           </div>
@@ -272,17 +271,17 @@ export default function CoursesOffered() {
             <div className="mt-12 w-full flex justify-center  ">
               <Link
                 href="https://www2.rsu.ac.th/info/scholarships"
-                className="bg-[#0896D2] text-white no-underline flex justify-center shadow-2xl w-52 h-16 rounded-l-3xl cursor-pointer flex items-center gap-2"
+                className="bg-[#0896D2] text-white no-underline justify-center shadow-2xl w-52 h-16 rounded-l-3xl cursor-pointer flex items-center gap-2"
               >
                 <BsMortarboard size={30} />
                 ทุนการศึกษา
               </Link>
               <Link
                 href="https://admissiononline.rsu.ac.th/"
-                className="bg-[#DA005A] text-white no-underline flex justify-center shadow-2xl w-52 h-16 rounded-r-3xl cursor-pointer flex items-center gap-2"
+                className="bg-[#DA005A] text-white no-underline  justify-center shadow-2xl w-52 h-16 rounded-r-3xl cursor-pointer flex items-center gap-2"
               >
                 <BsReceipt size={30} />
-                สมัครเรียน
+                สมัครเรียน 
               </Link>
             </div>
           </div>
@@ -319,14 +318,14 @@ export default function CoursesOffered() {
                 <div className="mt-12 w-full flex justify-center  ">
                   <Link
                     href="https://www2.rsu.ac.th/info/scholarships"
-                    className="bg-[#0896D2] text-white no-underline flex justify-center shadow-2xl w-52 h-16 rounded-l-3xl cursor-pointer flex items-center gap-2"
+                    className="bg-[#0896D2] text-white no-underline  justify-center shadow-2xl w-52 h-16 rounded-l-3xl cursor-pointer flex items-center gap-2"
                   >
                     <BsMortarboard size={30} />
                     ทุนการศึกษา
                   </Link>
                   <Link
                     href="https://admissiononline.rsu.ac.th/"
-                    className="bg-[#DA005A] text-white no-underline flex justify-center shadow-2xl w-52 h-16 rounded-r-3xl cursor-pointer flex items-center gap-2"
+                    className="bg-[#DA005A] text-white no-underline  justify-center shadow-2xl w-52 h-16 rounded-r-3xl cursor-pointer flex items-center gap-2"
                   >
                     <BsReceipt size={30} />
                     สมัครเรียน

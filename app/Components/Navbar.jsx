@@ -31,15 +31,17 @@ export default function Navbar() {
     else if (currentPath === "/Pages/Personnels") setLineanimation("4");
     else if (currentPath === "/Pages/DowloadDocument") setLineanimation("5");
     else if (currentPath === "/Pages/Contact") setLineanimation("6");
+    else if (currentPath === "/Pages/LearningImage") setLineanimation("7");
   }, []);
   
   const navLinks = [
-    { label: "รู้จักวิศวะคอมพิวเตอร์", path: "/Pages/GettoKnow", id: "1" },
+    { label: "รู้จักวิศวกรรมคอมพิวเตอร์", path: "/Pages/GettoKnow", id: "1" },
     { label: "รายวิชาที่เปิดสอน", path: "/Pages/CoursesOffered", id: "2" },
     { label: "ปริญญานิพนธ์", path: "/Pages/Thesis", id: "3" },
     { label: "บุคลากร", path: "/Pages/Personnels", id: "4" },
     { label: "ดาวน์โหลดเอกสาร", path: "/Pages/DowloadDocument", id: "5" },
     { label: "ติดต่อ", path: "/Pages/Contact", id: "6" },
+    { label: "บรรยากาศการเรียนการสอน", path: "/Pages/LearningImage", id: "7" },
   ];
 
   return (
