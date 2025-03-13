@@ -30,8 +30,8 @@ export default function Home() {
   return (
     <main>
       {/* Image */}
-      <article className="bg-[#991F23] w-full pt-12 h-full  flex justify-center overflow-hidden items-end">
-        <div className="max-w-6xl w-full   lg:pt-20  flex max-lg:items-center  lg:justify-between">
+      <article className="bg-[#991F23] w-full pt-12 h-full  flex justify-center  overflow-hidden items-end">
+        <div className="max-w-6xl w-full   lg:pt-20 flex max-lg:items-center max-lg:flex-col-reverse  lg:justify-between">
           <Image
             alt="Model1"
             src={Model1}
