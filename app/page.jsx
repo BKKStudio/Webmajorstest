@@ -19,7 +19,7 @@ export default function Home() {
     <main>
       {/* Image */}
       <article className="bg-[#991F23] w-full pt-12 h-full  flex justify-center overflow-hidden items-end">
-        <div className="max-w-6xl w-full  flex lg:pt-20 max-lg:flex-col max-lg:flex-col-reverse flex max-lg:items-center  lg:justify-between">
+        <div className="max-w-6xl w-full   lg:pt-20 max-lg:flex-col max-lg:flex-col-reverse flex max-lg:items-center  lg:justify-between">
           <Image
             alt="Model1"
             src={Model1}

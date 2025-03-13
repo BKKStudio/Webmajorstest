@@ -263,7 +263,8 @@ export default function GettoKnow() {
                 <span className="w-full bg-[#991F23] text-center text-white py-2 rounded-t-2xl">
                   Industrial Internet of Things 
                 </span>
-                <img src="" alt="" />
+                {/* <img src="" alt="" /> */}
+              <span className="w-full h-full text-center flex items-center justify-center bg-gray-400">Image IOT</span>
               </div>
               <div className="flex flex-col lg:px-24 px-6 mt-4">
                 <span className="w-full bg-[#991F23] text-center text-white py-2 rounded-t-2xl">
