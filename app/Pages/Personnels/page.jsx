@@ -142,9 +142,9 @@ export default function Page() {
                     }`}
                   >
                     <span className="font-bold text-base">วุฒิการศึกษา:</span>
-                    <ul className="list-disc ">
+                    <ul className="list-disc pl-6">
                       {education.map((item, index) => (
-                        <li key={index} className="ml-2">{item.trim()}</li>
+                        <li key={index} className="">{item.trim()}</li>
                       ))}
                     </ul>
                   </div>
