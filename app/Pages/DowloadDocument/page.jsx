@@ -71,7 +71,7 @@ export default function DocumentPage() {
         </div>
         <div className=" pt-4 w-full">
           <div className="">
-            <div className="w-full  rounded-lg grid grid-cols-4 max-lg:grid-cols-4 max-md:grid-cols-4 max-sm:grid-cols-2 gap-3">
+            <div className="w-full px-2 rounded-lg grid grid-cols-4 max-lg:grid-cols-4 max-md:grid-cols-4 max-sm:grid-cols-1 gap-3">
               {data.map((item) => (
                 <div
                   key={item.ID}
